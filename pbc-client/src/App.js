@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginContainer from './containers/LoginContainer';
+import LoginForm from './components/LoginForm';
 import './App.css';
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           Plant Based Chef
-          <LoginContainer />
+          <LoginForm />
         </header>
       </div>
     );
