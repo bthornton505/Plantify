@@ -4,10 +4,6 @@ import './App.css';
 
 class App extends Component {
 
-  handleSubmit = event => {
-    event.preventDefault()
-  }
-
   render() {
     return (
       <div className="App">
