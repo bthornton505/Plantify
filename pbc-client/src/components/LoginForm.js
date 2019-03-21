@@ -1,32 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const LoginForm = props => {
+class LoginForm extends Component {
 
-  return(
-    <form onSubmit={props.handleSubmit}>
-      <p>
-        <label>Username: </label>
+  handleSubmit = event => {
+    event.preventDefault()
+  }
+
+  render() {
+    return(
+      <form onSubmit={this.handleSubmit}>
+        <p>
+          <label>Username: </label>
+          <input
+            type="text"
+            />
+        </p>
+        <p>
+          <label>Email: </label>
+          <input
+            type="text"
+            />
+        </p>
+        <p>
+          <label>Password: </label>
+          <input
+            type="password"
+            />
+        </p>
         <input
-          type="text"
+          type="submit"
           />
-      </p>
-      <p>
-        <label>Email: </label>
-        <input
-          type="text"
-          />
-      </p>
-      <p>
-        <label>Password: </label>
-        <input
-          type="password"
-          />
-      </p>
-      <input
-        type="submit"
-        />
-    </form>
-  )
+      </form>
+    )
+  }
 }
 
 export default LoginForm;
