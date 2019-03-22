@@ -18,6 +18,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Using foreman to combine both servers into one task
 gem 'foreman', '~> 0.82.0'
+# Knock is an authentication solution for Rails API-only application based on JSON Web Tokens.
+gem 'knock'
+# A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
+gem 'jwt'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
