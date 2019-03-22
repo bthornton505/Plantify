@@ -4,6 +4,12 @@ class SignupForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    if (this.props.signup(this.state)) {
+      this.props.history.push('/user_profile')
+      window.alert("Thank you for signing up!")
+    } else {
+      window.alert("We're having issues creating your account.")
+    }
   }
 
   render() {
