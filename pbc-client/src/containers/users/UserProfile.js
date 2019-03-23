@@ -12,7 +12,7 @@ class UserProfile extends Component {
   render() {
     return(
       <div>
-        User Profile
+        <h1>User Profile</h1>
       </div>
     );
   }
