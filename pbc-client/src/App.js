@@ -21,7 +21,7 @@ class App extends Component {
     const userViews = (
       <div>
         <h1>Plant Based Chef</h1>
-        <Route exact path="/user_profile" component={UserProfile} />
+        <Route exact path="/user_profile" render={() => <UserProfile user={user}/>} />
       </div>
     )
 
@@ -40,4 +40,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {})(App);
