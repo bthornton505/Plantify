@@ -26,7 +26,7 @@ const authFailure = (errors) => {
 export const signup = (user) => {
   const newUser = user
   return dispatch => {
-    return fetch(`${API_URL}/user`, {
+    return fetch(`${API_URL}/users`, {
       method: "POST",
       headers: {
         "Accept": "application/json",
