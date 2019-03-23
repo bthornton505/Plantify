@@ -21,7 +21,7 @@ class App extends Component {
     const userViews = (
       <div>
         <h1>Plant Based Chef</h1>
-        <Route exact path="/user_profile" render={() => <UserProfile user={user}/>} />
+        <Route exact path="/user_profile" component={UserProfile} />
       </div>
     )
 
