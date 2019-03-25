@@ -15,9 +15,10 @@ class Recipe extends Component {
   render() {
     return(
       <div>
-        <h1>Recipes</h1>
+        <h1>New Recipe</h1>
         <p>Wanna make a new recipe? Go for it!</p>
         This will be a recipe form... maybe?
+        
       </div>
     )
   }
