@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  # before_action :authenticate_user
+  before_action :authenticate_user, only: [:show, :edit, :update, :destroy]
   # skip_before_action :authenticate_user, only: [:create]
   before_action :set_user, only: [:show, :update]
 
@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.valid? && @user.save
+    if @user.save
       render json: @user
     else
       render json: @user.errors, status: 400
