@@ -18,6 +18,10 @@ class UserProfile extends Component {
   //   this.props.history.push('/')
   // }
 
+  // componentDidMount = () => {
+  //   this will mount all of the users recipes and display them
+  // }
+
   render() {
     return(
       <div>
