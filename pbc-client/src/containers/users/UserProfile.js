@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import { Link, withRouter } from "react-router-dom";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -8,6 +10,12 @@ class UserProfile extends Component {
       user: this.props.user
     }
   }
+
+  // handleLogout = e => {
+  //   e.preventDefault()
+  //   this.props.logout();
+  //   this.props.history.push('/')
+  // }
 
   render() {
     return(
@@ -28,4 +36,4 @@ class UserProfile extends Component {
   }
 }
 
-export default UserProfile;
+export default UserProfile

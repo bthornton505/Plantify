@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Signup from './components/Signup';
 import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
+
 import './App.css';
 
 class App extends Component {
@@ -22,7 +23,7 @@ class App extends Component {
     const userViews = (
       <div>
         <h1>Plant Based Chef</h1>
-        <Route exact path="/user_profile" render={() => <UserProfile user={user}/>} />
+        <Route exact path="/user_profile" render={() => <UserProfile user={user} />} />
       </div>
     )
 
