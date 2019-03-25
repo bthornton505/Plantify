@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Signup from './components/Signup';
+import Login from './components/Login';
 import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
 
@@ -17,6 +18,7 @@ class App extends Component {
       <div>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
       </div>
     )
 
