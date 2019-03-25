@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Signup from './components/Signup';
-import Login from './components/Login';
+import Signup from './containers/Signup';
+import Login from './containers/Login';
+import Recipe from './containers/Recipe';
 import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
 
@@ -27,6 +28,7 @@ class App extends Component {
         <h1>Plant Based Chef</h1>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/user/:username" render={() => <UserProfile user={user} />} />
+        <Route exact path="/new_recipe" render={() => <Recipe user={user} />} />
       </div>
     )
 
