@@ -10,6 +10,8 @@ const LandingPage= () => {
       <p>Not only can you create and save your fav recipes, but you can also explore our vast database of vegan/vegetarian recipes!</p>
       <p>If this sounds like something for you, sign up!</p>
       <Link to="/signup">Sign Up</Link>
+      <br></br>
+      <Link to="/login">Login</Link>
     </div>
   )
 }
