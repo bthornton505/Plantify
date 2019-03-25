@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 // import { connect } from 'react-redux';
-// import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class UserProfile extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      user: this.props.user
+      user: this.props.user,
+      recipes: []
     }
   }
 
@@ -36,6 +37,7 @@ class UserProfile extends Component {
           <ol>
             <li>Recipes will show up here</li>
           </ol>
+          <Link to="/new_recipe">Create Recipe</Link>
         </div>
       </div>
     );
