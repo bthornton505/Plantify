@@ -30,10 +30,16 @@ class UserProfile extends Component {
             <label>Email: </label>
             {this.props.user.email}
           </p>
+          <p>
+            <label>Recipes: </label>
+          </p>
+          <ol>
+            <li>Recipes will show up here</li>
+          </ol>
         </div>
       </div>
     );
   }
 }
 
-export default UserProfile
+export default UserProfile;
