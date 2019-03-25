@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Signup from './components/Signup';
+import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
 import './App.css';
 
@@ -13,7 +14,7 @@ class App extends Component {
 
     const guestViews = (
       <div>
-        <h1>Plant Based Chef</h1>
+        <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={Signup} />
       </div>
     )
