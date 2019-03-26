@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import AllRecipes from '.../components/recipes/AllRecipes';
 
 class UserProfile extends Component {
   constructor(props) {
@@ -35,12 +35,7 @@ class UserProfile extends Component {
             <label>Email: </label>
             {this.props.user.email}
           </p>
-          <p>
-            <label>Recipes: </label>
-          </p>
-          <ol>
-            <li>Recipes will show up here</li>
-          </ol>
+          <AllRecipes recipes={this.prop.recipe}/>
           <Link to="/new_recipe">Create Recipe</Link>
         </div>
       </div>
