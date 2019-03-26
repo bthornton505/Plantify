@@ -16,6 +16,15 @@ const addRecipe = recipe => {
   }
 }
 
+const destroyRecipe = recipe => {
+  return {
+    type: types.DELETE_RECIPE,
+    recipe
+  }
+}
+
+
+
 export const createRecipe = recipe => {
   return (dispatch) => {
     return fetch(`${API_URL}/recipes`, {
