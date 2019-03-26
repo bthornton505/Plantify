@@ -2,10 +2,17 @@ import fetch from 'isomorphic-fetch';
 import { API_URL } from './apiUrl';
 import * as types from './actionTypes';
 
+const setRecipes = recipes => {
+  return {
+    type: types.REQUEST_RECIPES,
+    recipes
+  }
+}
+
 const addRecipe = recipe => {
   return {
     type: types.CREATE_RECIPE,
-    recipe: recipe
+    recipe
   }
 }
 
