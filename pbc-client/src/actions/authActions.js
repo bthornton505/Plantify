@@ -49,6 +49,7 @@ export const signup = (user) => {
 }
 
 export const authenticate = (credentials) => {
+  console.log("calling function")
   return dispatch => {
     dispatch(authRequest())
     return fetch(`${API_URL}/user_token`, {
@@ -60,12 +61,13 @@ export const authenticate = (credentials) => {
     })
     .then(response => response.json())
     .then(response => {
+      if (response.status === 500) return false
       const token = response.jwt;
       localStorage.setItem('token', token);
       return getUser(credentials)
     })
     .then((user) => {
-      console.log(user)
+      if (user === false) return false
         dispatch(authSuccess(user, localStorage.token))
     })
     .catch((errors) => {
@@ -74,6 +76,35 @@ export const authenticate = (credentials) => {
     })
   }
 }
+
+export const checkToken = (token) => {
+  console.log("calling function")
+  return dispatch => {
+    dispatch(authRequest())
+    return fetch(`${API_URL}/auth`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      },
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      if (response.status === 500) return false
+      return getUser(token)
+    })
+    .then((user) => {
+      if (user === false) return false
+        dispatch(authSuccess(user, localStorage.token))
+    })
+    .catch((errors) => {
+      dispatch(authFailure(errors))
+      localStorage.clear()
+    })
+  }
+}
+
 
 export const getUser = (credentials) => {
   const request = new Request(`${API_URL}/find_user`, {

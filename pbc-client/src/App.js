@@ -6,13 +6,20 @@ import Login from './containers/Login';
 import Recipe from './containers/Recipe';
 import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
+import { checkToken } from './actions/authActions';
 
 import './App.css';
 
 class App extends Component {
 
-  render() {
+  componentWillMount = () => {
+    if (localStorage.getItem("token")) {
+      this.props.checkToken(localStorage.getItem("token"))
+    }
+  }
 
+  render() {
+    console.log("App is loading")
     const {isAuthenticated, user} = this.props
 
     const guestViews = (
@@ -31,7 +38,7 @@ class App extends Component {
         <Route exact path="/new_recipe" render={() => <Recipe user={user} />} />
       </div>
     )
-
+    console.log(isAuthenticated)
     return (
       <Router>
         {isAuthenticated ? userViews : guestViews}
@@ -47,4 +54,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, { checkToken })(App);

@@ -24,7 +24,7 @@ class UserProfile extends Component {
   render() {
     return(
       <div>
-        <h1>User Profile</h1>
+        <h1>User Profile "Whatever"</h1>
         <div>
           <p>
             <label>Username: </label>
