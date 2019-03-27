@@ -20,9 +20,10 @@ gem 'active_model_serializers'
 # Using foreman to combine both servers into one task
 gem 'foreman', '~> 0.82.0'
 # Knock is an authentication solution for Rails API-only application based on JSON Web Tokens.
-gem 'knock'
+# gem 'knock'
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 gem 'jwt'
+gem 'simple_command'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
