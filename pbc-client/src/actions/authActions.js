@@ -52,7 +52,7 @@ export const authenticate = (credentials) => {
   console.log("calling function")
   return dispatch => {
     dispatch(authRequest())
-    return fetch(`${API_URL}/user_token`, {
+    return fetch(`${API_URL}/authenticate`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -77,33 +77,33 @@ export const authenticate = (credentials) => {
   }
 }
 
-export const checkToken = (token) => {
-  console.log("calling function")
-  return dispatch => {
-    dispatch(authRequest())
-    return fetch(`${API_URL}/auth`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": token
-      },
-    })
-    .then(response => response.json())
-    .then(response => {
-      console.log(response)
-      if (response.status === 500) return false
-      return getUser(token)
-    })
-    .then((user) => {
-      if (user === false) return false
-        dispatch(authSuccess(user, localStorage.token))
-    })
-    .catch((errors) => {
-      dispatch(authFailure(errors))
-      localStorage.clear()
-    })
-  }
-}
+// export const checkToken = (token) => {
+//   console.log("calling function")
+//   return dispatch => {
+//     dispatch(authRequest())
+//     return fetch(`${API_URL}/authenticate`, {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//         "Authorization": token
+//       },
+//     })
+//     .then(response => response.json())
+//     .then(response => {
+//       console.log(response)
+//       if (response.status === 500) return false
+//       return getUser(token)
+//     })
+//     .then((user) => {
+//       if (user === false) return false
+//         dispatch(authSuccess(user, localStorage.token))
+//     })
+//     .catch((errors) => {
+//       dispatch(authFailure(errors))
+//       localStorage.clear()
+//     })
+//   }
+// }
 
 
 export const getUser = (credentials) => {
