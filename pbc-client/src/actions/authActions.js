@@ -26,18 +26,17 @@ const authFailure = (errors) => {
 export const signup = (user) => {
   const newUser = user
   return dispatch => {
-    return fetch(`${API_URL}/users`, {
+    return fetch(`${API_URL}/signup`, {
       method: "POST",
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ user: user })
+      body: JSON.stringify( user )
     })
     .then(response => response.json())
     .then(resp => {
       dispatch(authenticate({
-        username: newUser.username,
         email: newUser.email,
         password: newUser.password})
       );
@@ -52,23 +51,23 @@ export const authenticate = (credentials) => {
   console.log("calling function")
   return dispatch => {
     dispatch(authRequest())
-    return fetch(`${API_URL}/authenticate`, {
+    return fetch(`${API_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ auth: credentials })
+      body: JSON.stringify(credentials)
     })
     .then(response => response.json())
     .then(response => {
       if (response.status === 500) return false
-      const token = response.jwt;
-      localStorage.setItem('token', token);
+      const auth_token = response.jwt;
+      localStorage.setItem('auth_token', auth_token);
       return getUser(credentials)
     })
     .then((user) => {
       if (user === false) return false
-        dispatch(authSuccess(user, localStorage.token))
+        dispatch(authSuccess(user, localStorage.auth_token))
     })
     .catch((errors) => {
       dispatch(authFailure(errors))
@@ -106,14 +105,14 @@ export const authenticate = (credentials) => {
 // }
 
 
-export const getUser = (credentials) => {
+export const getUser = (user) => {
   const request = new Request(`${API_URL}/find_user`, {
     method: "POST",
     headers: new Headers({
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${localStorage.token}`,
+      "Authorization": `Bearer ${localStorage.auth_token}`,
     }),
-    body: JSON.stringify({ user: credentials })
+    body: JSON.stringify({ user })
   })
   return fetch(request)
     .then(response => response.json())
