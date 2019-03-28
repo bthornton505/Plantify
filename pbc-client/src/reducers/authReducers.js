@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
         isAuthenticated: true,
         isAuthenticating: false,
         currentUser: action.user,
-        token: action.token
+        token: action.auth_token
       }
 
     case types.AUTHENTICATION_FAILURE:

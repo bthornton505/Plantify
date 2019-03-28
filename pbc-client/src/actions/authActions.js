@@ -37,6 +37,7 @@ export const signup = (user) => {
     .then(response => response.json())
     .then(resp => {
       dispatch(authenticate({
+        username: newUser.username,
         email: newUser.email,
         password: newUser.password})
       );
@@ -56,7 +57,7 @@ export const authenticate = (credentials) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(credentials)
+      body: JSON.stringify( credentials )
     })
     .then(response => response.json())
     .then(response => {
@@ -72,6 +73,34 @@ export const authenticate = (credentials) => {
     .catch((errors) => {
       dispatch(authFailure(errors))
       localStorage.clear()
+    })
+  }
+}
+
+export const getUser = (credentials) => {
+  const request = new Request(`${API_URL}/find_user`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${localStorage.auth_token}`,
+    },
+    body: JSON.stringify(credentials)
+  })
+  console.log(`This is your user ${credentials.username}, ${credentials.email}`)
+  return fetch(request)
+    .then(response => response.json())
+    .then(user => { return user })
+    .catch(error => {
+      return error;
+    }
+  );
+}
+
+export const logout = () => {
+  return dispatch => {
+    localStorage.clear();
+    return dispatch({
+      type: types.LOGOUT
     })
   }
 }
@@ -103,31 +132,3 @@ export const authenticate = (credentials) => {
 //     })
 //   }
 // }
-
-
-export const getUser = (user) => {
-  const request = new Request(`${API_URL}/find_user`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${localStorage.auth_token}`,
-    },
-    body: JSON.stringify({ user })
-  })
-  return fetch(request)
-    .then(response => response.json())
-    .then(user => { return user })
-    .catch(error => {
-      return error;
-    }
-  );
-}
-
-export const logout = () => {
-  return dispatch => {
-    localStorage.clear();
-    return dispatch({
-      type: types.LOGOUT
-    })
-  }
-}
