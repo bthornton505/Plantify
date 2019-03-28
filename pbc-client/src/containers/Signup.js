@@ -11,6 +11,7 @@ class Signup extends Component {
       username: "",
       email: "",
       password: "",
+      password_confirmation: ""
     };
   }
 
@@ -23,8 +24,9 @@ class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    if (this.props.signup(this.state)) {
-      this.props.history.push(`/user/${this.state.username}`)
+    const user = this.state
+    if (this.props.signup(user)) {
+      this.props.history.push(`/user/${user.username}`)
       window.alert("Thank you for signing up!")
     } else {
       window.alert("We're having issues creating your account.")
@@ -64,9 +66,16 @@ class Signup extends Component {
               onChange={this.handleChange}
               />
           </p>
-          <input
-            type="submit"
+          <p>
+            <label>Password Confirmation: </label>
+            <input
+              type='password'
+              name="password_confirmation"
+              value={ this.state.password_confirmation }
+              onChange={ this.handleChange }
             />
+          </p>
+          <input type="submit"/>
         </form>
       </div>
     )
