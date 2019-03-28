@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
   end
 
   def find
-    @user = User.find_by(email: params[:user][:email])
+    @user = User.find_by(email: params[:email])
     if @user
       render json: @user
     else

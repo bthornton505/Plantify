@@ -108,10 +108,10 @@ export const authenticate = (credentials) => {
 export const getUser = (user) => {
   const request = new Request(`${API_URL}/find_user`, {
     method: "POST",
-    headers: new Headers({
+    headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${localStorage.auth_token}`,
-    }),
+    },
     body: JSON.stringify({ user })
   })
   return fetch(request)
