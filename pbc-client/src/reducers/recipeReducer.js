@@ -8,7 +8,7 @@ export default (state = [], action) => {
       return action.recipes
 
     case types.CREATE_RECIPE:
-      return state.concat(action.recipe)
+      return state.concat(action.recipe) 
 
     case types.UPDATE_RECIPE:
       return state.map(recipe => recipe.id === action.recipe.id ? action.recipe : recipe)
