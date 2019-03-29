@@ -30,10 +30,10 @@ export const createRecipe = recipe => {
     return fetch(`${API_URL}/recipes`, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${localStorage.token}`,
-        "Content-Type": 'application/json'
+        "Content-Type": 'application/json',
+        "Authorization": `Bearer ${localStorage.auth_token}`
       },
-      body: JSON.stringify({ recipe: recipe })
+      body: JSON.stringify( recipe )
     })
     .then(response => response.json())
     .then(recipe => {
