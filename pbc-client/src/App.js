@@ -15,6 +15,9 @@ class App extends Component {
   componentWillMount = () => {
     if (localStorage.getItem("auth_token")) {
       this.props.checkToken(localStorage.getItem("auth_token"))
+    } else if (!window.location.href.includes('login') && !window.location.href.includes('signup') && !(window.location.pathname === '/')) {
+      localStorage.clear()
+      window.location.href = "/login"
     }
   }
 
