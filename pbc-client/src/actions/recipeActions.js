@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch';
 import { API_URL } from './apiUrl';
 import * as types from './actionTypes';
 
-const setRecipes = recipes => {
+const getRecipes = recipes => {
   return {
     type: types.REQUEST_RECIPES,
     recipes
@@ -23,8 +23,6 @@ const destroyRecipe = recipe => {
   }
 }
 
-
-
 export const createRecipe = recipe => {
   return (dispatch) => {
     return fetch(`${API_URL}/recipes`, {
@@ -38,6 +36,23 @@ export const createRecipe = recipe => {
     .then(response => response.json())
     .then(recipe => {
       dispatch(addRecipe(recipe))
+    })
+    .catch(error => console.log(error))
+  }
+}
+
+export const fetchRecipes = recipes => {
+  return (dispatch) => {
+    return fetch(`${API_URL}/recipes`, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+        "Authorization": `Bearer ${localStorage.auth_token}`
+      }
+    })
+    .then(response => response.json())
+    .then(recipes => {
+      dispatch(getRecipes(recipes))
     })
     .catch(error => console.log(error))
   }
