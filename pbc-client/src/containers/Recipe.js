@@ -15,9 +15,8 @@ class Recipe extends Component {
       <div>
         <AllRecipes />
         <br></br>
-        <h1>New Recipe</h1>
         <p>Wanna make a new recipe? Go for it!</p>
-        This will be a recipe form... maybe?
+        <h1>New Recipe</h1>
         <RecipeForm user={this.state.user_id}/>
       </div>
     )
