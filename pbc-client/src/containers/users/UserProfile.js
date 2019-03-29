@@ -19,10 +19,6 @@ class UserProfile extends Component {
     this.props.history.push('/login')
   }
 
-  // componentDidMount = () => {
-  //   this will mount all of the users recipes and display them
-  // }
-
   render() {
     return(
       <div>
