@@ -31,7 +31,7 @@ class RecipeForm extends Component {
     this.setState({
       title: "",
       description: "",
-      ingredients: [],
+      ingredients: "",
       cuisine: "",
       userId: this.props.user.id
     })
