@@ -7,6 +7,11 @@ class Api::AuthenticationController < ApplicationController
     json_response(auth_token: auth_token)
   end
 
+  def check_token
+    @user = AuthorizeApiRequest.new(request.headers).call[:user]
+    json_response(email: @user.email)
+  end
+
   private
 
   def auth_params

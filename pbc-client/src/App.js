@@ -6,17 +6,17 @@ import Login from './containers/Login';
 import Recipe from './containers/Recipe';
 import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
-// import { checkToken } from './actions/authActions';
+import { checkToken } from './actions/authActions';
 
 import './App.css';
 
 class App extends Component {
 
-  // componentWillMount = () => {
-  //   if (localStorage.getItem("token")) {
-  //     this.props.checkToken(localStorage.getItem("token"))
-  //   }
-  // }
+  componentWillMount = () => {
+    if (localStorage.getItem("auth_token")) {
+      this.props.checkToken(localStorage.getItem("auth_token"))
+    }
+  }
 
   render() {
     console.log("App is loading")
@@ -54,4 +54,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {  })(App);
+export default connect(mapStateToProps, { checkToken })(App);

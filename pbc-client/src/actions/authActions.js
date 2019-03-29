@@ -60,9 +60,8 @@ export const authenticate = (credentials) => {
       body: JSON.stringify( credentials )
     })
     .then(response => response.json())
-    .then(response => {
-      if (response.status === 500) return false
-      const auth_token = response.jwt;
+    .then(({ auth_token }) => {
+      if (!auth_token) return false
       localStorage.setItem('auth_token', auth_token);
       return getUser(credentials)
     })
@@ -105,30 +104,29 @@ export const logout = () => {
   }
 }
 
-// export const checkToken = (token) => {
-//   console.log("calling function")
-//   return dispatch => {
-//     dispatch(authRequest())
-//     return fetch(`${API_URL}/authenticate`, {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         "Authorization": token
-//       },
-//     })
-//     .then(response => response.json())
-//     .then(response => {
-//       console.log(response)
-//       if (response.status === 500) return false
-//       return getUser(token)
-//     })
-//     .then((user) => {
-//       if (user === false) return false
-//         dispatch(authSuccess(user, localStorage.token))
-//     })
-//     .catch((errors) => {
-//       dispatch(authFailure(errors))
-//       localStorage.clear()
-//     })
-//   }
-// }
+export const checkToken = (token) => {
+  console.log("calling function")
+  return dispatch => {
+    dispatch(authRequest())
+    return fetch(`${API_URL}/auth/check_token`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+    })
+    .then(response => response.json())
+    .then(({ email }) => {
+      if (!email) return false
+      return getUser({email})
+    })
+    .then((user) => {
+      if (user === false) return false
+        dispatch(authSuccess(user, localStorage.auth_token))
+    })
+    .catch((errors) => {
+      dispatch(authFailure(errors))
+      localStorage.clear()
+    })
+  }
+}
