@@ -26,6 +26,7 @@ class Signup extends Component {
     event.preventDefault()
     const { username, email, password } = this.state
     const user = { username: username, email: email, password: password}
+    
     if (this.props.signup(user)) {
       this.props.history.push(`/user/${user.username}`)
       window.alert(`Thank you for signing up ${user.username}!`)
