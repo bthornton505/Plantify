@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { createRecipe } from '../../actions/recipeActions'
 
 class RecipeForm extends Component {
@@ -26,7 +27,14 @@ class RecipeForm extends Component {
     event.preventDefault()
     const recipe = this.state
     console.log(recipe)
-    // this.props.createRecipe(recipe)
+    this.props.createRecipe(recipe)
+    this.setState({
+      title: "",
+      description: "",
+      ingredients: [],
+      cuisine: "",
+      userId: this.props.user.id
+    })
   }
 
   render() {
@@ -105,4 +113,4 @@ class RecipeForm extends Component {
   }
 }
 
-export default RecipeForm;
+export default RecipeForm = withRouter(connect(null, { createRecipe })(RecipeForm));
