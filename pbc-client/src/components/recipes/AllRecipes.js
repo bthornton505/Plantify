@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class AllRecipes extends Component {
+const AllRecipes = props => {
 
-  render(){
     return(
       <div>
         <p>
@@ -10,12 +9,11 @@ class AllRecipes extends Component {
         </p>
         <ol>
           <li>
-            This will render links to recipes.
+            
           </li>
         </ol>
       </div>
     )
-  }
 }
 
 export default AllRecipes;
