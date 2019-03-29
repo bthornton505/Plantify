@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { createRecipe } from '../../actions/recipeActions'
 
 class RecipeForm extends Component {
   constructor(props) {
@@ -9,7 +11,7 @@ class RecipeForm extends Component {
       description: "",
       ingredients: [],
       cuisine: "",
-      userId: this.props.user_id
+      userId: this.props.user.id
     }
   }
 
@@ -22,7 +24,9 @@ class RecipeForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    
+    const recipe = this.state
+    console.log(recipe)
+    // this.props.createRecipe(recipe)
   }
 
   render() {
