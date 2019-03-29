@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { logout } from '../../actions/authActions';
+import { Link, withRouter } from 'react-router-dom';
 
 class UserProfile extends Component {
   constructor(props) {
@@ -11,11 +13,11 @@ class UserProfile extends Component {
     }
   }
 
-  // handleLogout = e => {
-  //   e.preventDefault()
-  //   this.props.logout();
-  //   this.props.history.push('/')
-  // }
+  handleLogout = () => {
+    this.props.logout()
+    localStorage.clear()
+    this.props.history.push('/login')
+  }
 
   // componentDidMount = () => {
   //   this will mount all of the users recipes and display them
@@ -36,9 +38,10 @@ class UserProfile extends Component {
           </p>
           <Link to="/new_recipe">Create Recipe</Link>
         </div>
+        <button onClick={this.handleLogout}>Log Out</button>
       </div>
     );
   }
 }
 
-export default UserProfile;
+export default UserProfile = withRouter(connect(null, { logout })(UserProfile));
