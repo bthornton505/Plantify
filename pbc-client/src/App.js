@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Signup from './containers/Signup';
 import Login from './containers/Login';
-import MyRecipes from './containers/MyRecipes';
+import MyRecipes from './containers/recipes/MyRecipes';
 import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
 import { checkToken } from './actions/authActions';
