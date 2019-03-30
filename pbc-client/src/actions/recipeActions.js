@@ -9,6 +9,13 @@ const getRecipes = recipes => {
   }
 }
 
+const getRecipe = recipe => {
+  return {
+    type: types.GET_RECIPE,
+    recipe
+  }
+}
+
 const addRecipe = recipe => {
   return {
     type: types.CREATE_RECIPE,
@@ -53,6 +60,23 @@ export const fetchRecipes = recipes => {
     .then(response => response.json())
     .then(recipes => {
       dispatch(getRecipes(recipes))
+    })
+    .catch(error => console.log(error))
+  }
+}
+
+export const fetchRecipe = recipe => {
+  return (dispatch) => {
+    return fetch(`${API_URL}/recipes/:recipe_id`, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+        "Authorization": `Bearer ${localStorage.auth_token}`
+      }
+    })
+    .then(response => response.json())
+    .then(recipe => {
+      dispatch(getRecipe(recipe))
     })
     .catch(error => console.log(error))
   }
