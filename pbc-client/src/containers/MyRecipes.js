@@ -5,7 +5,7 @@ import { fetchRecipes } from '../actions/recipeActions'
 import AllRecipes from '../components/recipes/AllRecipes';
 import RecipeForm from '../components/recipes/RecipeForm';
 
-class Recipe extends Component {
+class MyRecipes extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -31,4 +31,4 @@ class Recipe extends Component {
   }
 }
 
-export default Recipe = withRouter(connect(null, { fetchRecipes })(Recipe));
+export default MyRecipes = withRouter(connect(null, { fetchRecipes })(MyRecipes));

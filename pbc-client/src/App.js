@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Signup from './containers/Signup';
 import Login from './containers/Login';
-import Recipe from './containers/Recipe';
+import MyRecipes from './containers/MyRecipes';
 import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
 import { checkToken } from './actions/authActions';
@@ -38,7 +38,7 @@ class App extends Component {
         <h1>Plant Based Chef</h1>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/user/:username" render={() => <UserProfile user={user} />} />
-        <Route exact path="/new_recipe" render={() => <Recipe user={user} />} />
+        <Route exact path="/new_recipe" render={() => <MyRecipes user={user} />} />
       </div>
     )
     console.log(isAuthenticated)
