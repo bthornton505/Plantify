@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const Recipe = props => {
   return(
-    <li>
-      <a href={`/recipe/${props.recipe.id}`}>{props.recipe.title}</a>
-    </li>
+    <div>
+      <h1>{props.recipe.title}</h1>
+    </div>
   )
 }
 
