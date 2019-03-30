@@ -1,9 +1,14 @@
 import React from 'react';
 
+
 const AllRecipes = props => {
   // recipeList will map through user recipes and create ordered list of recipes"
-  const recipeList = props.recipes.map((recipe, index) => {
-
+  const recipeList = props.recipes.map(recipe => {
+    return(
+      <li>
+        <a href={`/recipe/${recipe.id}`} key={ recipe.id } recipe={ recipe }>{ recipe.title }</a>
+      </li>
+    )
   })
 
     return(
