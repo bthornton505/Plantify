@@ -1,13 +1,13 @@
 import React from 'react';
-
+import { connect } from 'react-redux'
+import RecipeLink from './RecipeLink'
+import { fetchRecipe } from '../../actions/recipeActions'
 
 const AllRecipes = props => {
   // recipeList will map through user recipes and create ordered list of recipes"
   const recipeList = props.recipes.map(recipe => {
     return(
-      <li>
-        <a href={`/recipe/${recipe.id}`} key={ recipe.id } recipe={ recipe }>{ recipe.title }</a>
-      </li>
+      <RecipeLink key={ recipe.id } recipe={ recipe } getRecipe={ fetchRecipe }/>
     )
   })
 
@@ -21,4 +21,4 @@ const AllRecipes = props => {
     )
 }
 
-export default AllRecipes;
+export default connect(null, { fetchRecipe })(AllRecipes);
