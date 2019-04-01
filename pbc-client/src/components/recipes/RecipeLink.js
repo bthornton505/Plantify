@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // import { fetchRecipe } from '../../actions/recipeActions';
 // import Recipe from './Recipe'
 
@@ -9,7 +10,7 @@ import React from 'react'
 const RecipeLink = props => {
   return(
     <li>
-      <a href={`/recipe/${props.recipe.id}`} >{props.recipe.title}</a>
+      <Link to={`/recipe/${props.recipe.id}`}>{props.recipe.title}</Link>
     </li>
   )
 }
