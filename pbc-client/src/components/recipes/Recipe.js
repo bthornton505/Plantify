@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Recipe = props => {
-  return(
-    <div>
-      <h1>This is a recipe</h1>
-    </div>
-  )
+class Recipe extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      recipe: props.location.state
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        This is a recipe
+      </div>
+    )
+  }
 }
 
 export default Recipe;
