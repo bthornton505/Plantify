@@ -10,9 +10,27 @@ class Recipe extends Component {
   }
 
   render() {
+    const { recipe } = this.state.recipe
+    console.log(recipe)
     return(
       <div>
-        This is a recipe
+        <h2>{ recipe.title }</h2>
+        <p>
+          <label> Description: </label>
+          { recipe.description }
+        </p>
+        <p>
+          <label>Cuisine: </label>
+          { recipe.cuisine }
+        </p>
+        <p>
+          <label>Ingredients: </label>
+          <ol>
+            <li>
+              Ingredients listed here
+            </li>
+          </ol>
+        </p>
       </div>
     )
   }

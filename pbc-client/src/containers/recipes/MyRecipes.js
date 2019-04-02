@@ -14,9 +14,9 @@ class MyRecipes extends Component {
     }
   }
 
-  componentWillMount = () => {
-    this.props.fetchRecipes()
-  }
+  // componentWillMount = () => {
+  //   this.props.fetchRecipes()
+  // }
 
   render() {
     return(

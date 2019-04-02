@@ -67,7 +67,7 @@ export const fetchRecipes = recipes => {
 
 export const fetchRecipe = recipe => {
   return (dispatch) => {
-    return fetch(`${API_URL}/recipes/:recipe_id`, {
+    return fetch(`${API_URL}/recipes/:id`, {
       method: "GET",
       headers: {
         "Accept": "application/json",
