@@ -10,10 +10,18 @@ class RecipeForm extends Component {
     this.state = {
       title: "",
       description: "",
-      ingredients: [],
+      ingredients: [
+        {}
+      ],
       cuisine: "",
       userId: this.props.user.id
     }
+  }
+
+  updateIngredient = (ingredientIndex, newIngredient = {}) => {
+    const newIngredients = Object.assign([], this.state.ingredients);
+    newIngredients[ingredientIndex] = newIngredient;
+    this.setState({ingredients: newIngredients})
   }
 
   handleChange = event => {
@@ -38,8 +46,7 @@ class RecipeForm extends Component {
   }
 
   render() {
-    // const { title, description, ingredients, cuisine, user } = this.state;
-
+    const { ingredients } = this.state
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
