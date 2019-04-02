@@ -10,9 +10,7 @@ class RecipeForm extends Component {
     this.state = {
       title: "",
       description: "",
-      ingredients: [
-        {}
-      ],
+      ingredients: [],
       cuisine: "",
       userId: this.props.user.id
     }
@@ -47,6 +45,7 @@ class RecipeForm extends Component {
 
   render() {
     const { ingredients } = this.state
+
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
