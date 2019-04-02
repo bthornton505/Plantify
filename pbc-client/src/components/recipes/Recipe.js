@@ -23,14 +23,12 @@ class Recipe extends Component {
           <label>Cuisine: </label>
           { recipe.cuisine }
         </p>
-        <p>
-          <label>Ingredients: </label>
-          <ol>
-            <li>
-              Ingredients listed here
-            </li>
-          </ol>
-        </p>
+        <label>Ingredients: </label>
+        <ol>
+          <li>
+            Ingredients listed here
+          </li>
+        </ol>
       </div>
     )
   }
