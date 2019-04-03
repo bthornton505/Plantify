@@ -80,7 +80,7 @@ class RecipeForm extends Component {
             <input
               type="text"
               name="ingredients"
-              value={this.updateIngredientArray}
+              // value={this.updateIngredientArray}
               onChange={this.handleChange}
             />
           </p>
@@ -89,7 +89,7 @@ class RecipeForm extends Component {
             <input
               type="text"
               name="ingredients"
-              value={this.updateIngredientArray}
+              // value={this.updateIngredientArray}
               onChange={this.handleChange}
             />
           </p>
@@ -98,7 +98,7 @@ class RecipeForm extends Component {
             <input
               type="text"
               name="ingredients"
-              value={this.updateIngredientArray}
+              // value={this.updateIngredientArray}
               onChange={this.handleChange}
             />
           </p>
@@ -107,7 +107,7 @@ class RecipeForm extends Component {
             <input
               type="text"
               name="ingredients"
-              value={this.updateIngredientArray}
+              // value={this.updateIngredientArray}
               onChange={this.handleChange}
             />
           </p>
