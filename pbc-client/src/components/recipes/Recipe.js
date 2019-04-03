@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { deleteRecipe } from '../../actions/recipeActions';
 
 class Recipe extends Component {
   constructor(props){
@@ -7,6 +9,10 @@ class Recipe extends Component {
     this.state = {
       recipe: props.location.state
     }
+  }
+
+  handleDeleteRecipe = event => {
+    event.preventDefault()
   }
 
   render() {
@@ -29,9 +35,16 @@ class Recipe extends Component {
             Ingredients listed here
           </li>
         </ol>
+        <input
+          type="submit"
+          value="edit"
+        />
+        <button onClick={() => this.props.deleteRecipe(recipe.id)}>
+          Delete Recipe
+        </button>
       </div>
     )
   }
 }
 
-export default Recipe;
+export default connect(null, { deleteRecipe })(Recipe);

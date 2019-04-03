@@ -15,6 +15,13 @@ class Api::RecipesController < ApplicationController
     json_response(@recipe)
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+
+    render json: @recipe
+  end
+
   private
 
   def recipe_params

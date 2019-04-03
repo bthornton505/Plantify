@@ -81,3 +81,19 @@ export const fetchRecipe = recipe => {
     .catch(error => console.log(error))
   }
 }
+
+export const deleteRecipe = recipeId => {
+  return (dispatch) => {
+    return fetch(`${API_URL}/recipes/${recipeId}`, {
+      method: "DELETE",
+      headers: {
+        "Accept": "application/json",
+        "Authorization": `Bearer ${localStorage.auth_token}`
+      }
+    })
+    .then(recipe => {
+      dispatch(destroyRecipe(recipe))
+    })
+    .catch(error => console.log(error))
+  }
+}

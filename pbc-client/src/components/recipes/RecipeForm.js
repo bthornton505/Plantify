@@ -16,10 +16,18 @@ class RecipeForm extends Component {
     }
   }
 
-  updateIngredient = (ingredientIndex, newIngredient = {}) => {
-    const newIngredients = Object.assign([], this.state.ingredients);
-    newIngredients[ingredientIndex] = newIngredient;
-    this.setState({ingredients: newIngredients})
+  // updateIngredientArray = (ingredientIndex, newIngredient = {}) => {
+  //   const newIngredients = Object.assign([], this.state.ingredients);
+  //   newIngredients[ingredientIndex] = newIngredient;
+  //   this.setState({ingredients: newIngredients})
+  // }
+
+  updateIngredientArray = (value) => {
+    let updatedArr = [...this.state.ingredients]
+    updatedArr.push(value)
+    this.setState({
+      updatedArr
+    })
   }
 
   handleChange = event => {
@@ -72,7 +80,7 @@ class RecipeForm extends Component {
             <input
               type="text"
               name="ingredients"
-              // value={this.state.ingredients}
+              value={this.updateIngredientArray}
               onChange={this.handleChange}
             />
           </p>
@@ -81,7 +89,7 @@ class RecipeForm extends Component {
             <input
               type="text"
               name="ingredients"
-              // value={this.state.ingredients}
+              value={this.updateIngredientArray}
               onChange={this.handleChange}
             />
           </p>
@@ -90,7 +98,7 @@ class RecipeForm extends Component {
             <input
               type="text"
               name="ingredients"
-              // value={this.state.ingredients}
+              value={this.updateIngredientArray}
               onChange={this.handleChange}
             />
           </p>
@@ -99,7 +107,7 @@ class RecipeForm extends Component {
             <input
               type="text"
               name="ingredients"
-              // value={this.state.ingredients}
+              value={this.updateIngredientArray}
               onChange={this.handleChange}
             />
           </p>
