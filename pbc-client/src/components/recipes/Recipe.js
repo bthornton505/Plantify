@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { BrowserRouter as Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { deleteRecipe } from '../../actions/recipeActions';
 
 class Recipe extends Component {
@@ -8,23 +8,25 @@ class Recipe extends Component {
     super(props)
 
     this.state = {
-      recipe: props.location.state
+      recipe: props.location.state.recipe,
+      isDeleted: false
     }
   }
 
   handleDeleteRecipe = event => {
-    // event.preventDefault()
-
-    const { recipe } = this.state.recipe
-    // this.props.deleteRecipe(recipe.id)
-
-    if (this.props.deleteRecipe(recipe.id)) {
-      return <Redirect to="/my_recipes" />
-    }
+    const { recipe } = this.state
+    this.props.deleteRecipe(recipe.id)
+    this.setState({
+      isDeleted: true
+    })
   }
 
   render() {
-    const { recipe } = this.state.recipe
+    if (this.state.isDeleted === true){
+      return <Redirect to="/my_recipes" />
+    }
+
+    const { recipe } = this.state
     console.log(recipe)
     return(
       <div>

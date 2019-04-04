@@ -13,22 +13,7 @@ class RecipeForm extends Component {
       ingredients: [],
       cuisine: "",
       userId: this.props.user.id,
-      redirect: false
-    }
-  }
-
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    })
-  }
-
-  renderRedirect = () => {
-    const recipe = this.state
-    if (this.state.redirect) {
-      return <Redirect to={{
-        pathname: `/recipe/${recipe.id}`
-      }} />
+      isCreated: false
     }
   }
 
@@ -53,33 +38,22 @@ class RecipeForm extends Component {
     });
   }
 
-  // handleSubmit = event => {
-  //   event.preventDefault()
-  //   if (this.props.authenticate(this.state)) {
-  //     this.props.history.push(`/user/${this.state.username}`)
-  //     window.alert("You're Logged In!")
-  //   } else {
-  //     window.alert("Sorry, something went wrong. Please try logging in again.")
-  //   }
-  // }
-
   handleSubmit = event => {
     event.preventDefault()
 
     const recipe = this.state
     // console.log(recipe)
-    if (this.props.createRecipe(recipe)) {
-      this.setState({
-        redirect: true
-      })
-      this.renderRedirect()
-    }
+    this.props.createRecipe(recipe)
+    this.setState({
+      isCreated: true
+    })
   }
 
-
-
   render() {
-    // const { ingredients } = this.state
+    if (this.state.isCreated === true){
+      return <Redirect to="/my_recipes" />
+    }
+    
     return(
       <div>
       <p>Wanna make a new recipe? Go for it!</p>
@@ -151,7 +125,6 @@ class RecipeForm extends Component {
           </p>
           <input type="submit"/>
         </form>
-        {this.renderRedirect()}
       </div>
     )
   }
