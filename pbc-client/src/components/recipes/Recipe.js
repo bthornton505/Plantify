@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { BrowserRouter as Redirect } from 'react-router-dom'
 import { deleteRecipe } from '../../actions/recipeActions';
 
 class Recipe extends Component {
@@ -12,7 +13,14 @@ class Recipe extends Component {
   }
 
   handleDeleteRecipe = event => {
-    event.preventDefault()
+    // event.preventDefault()
+
+    const { recipe } = this.state.recipe
+    // this.props.deleteRecipe(recipe.id)
+
+    if (this.props.deleteRecipe(recipe.id)) {
+      return <Redirect to="/my_recipes" />
+    }
   }
 
   render() {
@@ -39,7 +47,7 @@ class Recipe extends Component {
           type="submit"
           value="edit"
         />
-        <button onClick={() => this.props.deleteRecipe(recipe.id)}>
+        <button onClick={this.handleDeleteRecipe}>
           Delete Recipe
         </button>
       </div>
