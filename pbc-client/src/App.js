@@ -29,6 +29,7 @@ class App extends Component {
 
     const guestViews = (
       <div>
+      <h1>Plant Based Chef</h1>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
