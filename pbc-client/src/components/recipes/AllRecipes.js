@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+// import RecipeLink from './RecipeLink'
 
 const AllRecipes = props => {
   // recipeList will map through user recipes and create ordered list of recipes"
   const recipeList = props.recipes.map(recipe => {
     return(
+      // <RecipeLink key={recipe.id} recipe={recipe}/>
       <li>
         <Link to={{
           pathname: `/recipe/${recipe.id}`,
           state: {
             recipe: recipe
-          },
-          key: `${ recipe.id }`
-        }}>{recipe.title}</Link>
+          }
+        }} key={recipe.id}>{recipe.title}</Link>
       </li>
     )
   })
