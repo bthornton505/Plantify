@@ -9,7 +9,7 @@ class MyRecipes extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user_id: this.props.user,
+      userId: this.props.user,
       recipes: this.props.user.recipes
     }
   }
@@ -23,6 +23,10 @@ class MyRecipes extends Component {
       <div>
         <AllRecipes recipes={ this.state.recipes }/>
         <Link to="/new_recipe">Create Recipe</Link>
+        <br></br>
+        <Link to={{
+          pathname: `/user/${this.state.userId.username}`
+        }}>Profile</Link>
       </div>
     )
   }
