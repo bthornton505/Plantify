@@ -9,7 +9,6 @@ class UserProfile extends Component {
 
     this.state = {
       user: this.props.user,
-      recipes: []
     }
   }
 

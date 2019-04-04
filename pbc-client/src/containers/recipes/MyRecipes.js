@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import { fetchRecipes } from '../../actions/recipeActions'
 import AllRecipes from '../../components/recipes/AllRecipes';
-// import RecipeForm from '../../components/recipes/RecipeForm';
 
 class MyRecipes extends Component {
   constructor(props) {
@@ -15,6 +14,11 @@ class MyRecipes extends Component {
 
   componentDidMount = () => {
     this.props.fetchRecipes()
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    let shouldUpdate = this.props.recipes !== nextProps.recipes;
+    return shouldUpdate;
   }
 
   render() {
@@ -31,4 +35,8 @@ class MyRecipes extends Component {
   }
 }
 
-export default MyRecipes = withRouter(connect(null, { fetchRecipes })(MyRecipes));
+const mapStateToProps = state => {
+  return { recipes: state.recipes}
+}
+
+export default MyRecipes = withRouter(connect(mapStateToProps, { fetchRecipes })(MyRecipes));
