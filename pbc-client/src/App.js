@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Signup from './containers/Signup';
 import Login from './containers/Login';
 import MyRecipes from './containers/recipes/MyRecipes';
+import RecipeForm from './components/recipes/RecipeForm';
 import Recipe from './components/recipes/Recipe'
 import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
@@ -40,6 +41,7 @@ class App extends Component {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/user/:username" render={() => <UserProfile user={user} />} />
         <Route exact path="/my_recipes" render={() => <MyRecipes user={user} />} />
+        <Route exact path="/new_recipe" render={() => <RecipeForm user={user} />} />
         <Route exact path="/recipe/:id" component={Recipe} />
       </div>
     )
