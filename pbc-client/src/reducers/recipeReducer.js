@@ -21,7 +21,7 @@ export default (state = [], action) => {
       return state.map(recipe => recipe.id === action.recipe.id ? action.recipe : recipe)
 
     case types.DELETE_RECIPE:
-      return { recipes: state.recipes.filter(recipe => recipe.id !== action.id)} 
+      return { recipes: state.recipes.filter(recipe => recipe.id !== action.id) }
 
     default:
       return state;
