@@ -17,12 +17,6 @@ class RecipeForm extends Component {
     }
   }
 
-  // updateIngredientArray = (ingredientIndex, newIngredient = {}) => {
-  //   const newIngredients = Object.assign([], this.state.ingredients);
-  //   newIngredients[ingredientIndex] = newIngredient;
-  //   this.setState({ingredients: newIngredients})
-  // }
-
   updateIngredientArray = (value) => {
     let updatedArr = [...this.state.ingredients]
     updatedArr.push(value)
