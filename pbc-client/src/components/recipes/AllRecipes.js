@@ -5,13 +5,13 @@ const AllRecipes = props => {
   // recipeList will map through user recipes and create ordered list of recipes"
   const recipeList = props.recipes.map(recipe => {
     return(
-      <li>
+      <li key={recipe.id}>
         <Link to={{
           pathname: `/recipe/${recipe.id}`,
           state: {
             recipe: recipe
           }
-        }} key={recipe.id}>{recipe.title}</Link>
+        }}>{recipe.title}</Link>
       </li>
     )
   })
