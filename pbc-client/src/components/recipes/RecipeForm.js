@@ -53,7 +53,7 @@ class RecipeForm extends Component {
     if (this.state.isCreated === true){
       return <Redirect to="/my_recipes" />
     }
-    
+    // const { ingredients } = this.state
     return(
       <div>
       <p>Wanna make a new recipe? Go for it!</p>

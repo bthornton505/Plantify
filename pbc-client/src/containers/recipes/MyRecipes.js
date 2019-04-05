@@ -16,6 +16,11 @@ class MyRecipes extends Component {
     this.props.fetchRecipes()
   }
 
+  handleSubmit(recipe) {
+    let newState = this.state.recipes.concat(recipe);
+    this.setState({ recipes: newState });
+  }
+
   shouldComponentUpdate = (nextProps, nextState) => {
     let shouldUpdate = this.props.recipes !== nextProps.recipes;
     return shouldUpdate;
@@ -35,8 +40,8 @@ class MyRecipes extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { recipes: state.recipes}
-}
+// const mapStateToProps = state => {
+//   return { recipes: state.recipes}
+// }
 
-export default MyRecipes = withRouter(connect(mapStateToProps, { fetchRecipes })(MyRecipes));
+export default MyRecipes = withRouter(connect(null, { fetchRecipes })(MyRecipes));
