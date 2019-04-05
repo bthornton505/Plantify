@@ -16,11 +16,6 @@ class MyRecipes extends Component {
     this.props.fetchRecipes()
   }
 
-  handleSubmit(recipe) {
-    let newState = this.state.recipes.concat(recipe);
-    this.setState({ recipes: newState });
-  }
-
   shouldComponentUpdate = (nextProps, nextState) => {
     let shouldUpdate = this.props.recipes !== nextProps.recipes;
     return shouldUpdate;
