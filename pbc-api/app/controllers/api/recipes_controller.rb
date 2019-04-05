@@ -1,7 +1,8 @@
 class Api::RecipesController < ApplicationController
+  before_action :set_user
 
   def index
-    @recipes = Recipe.all
+    @recipes = @user.recipes
     json_response(@recipes)
   end
 
@@ -29,6 +30,10 @@ class Api::RecipesController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def recipe_params
     params.permit(:title, :description, :ingredients, :cuisine, :user_id)
