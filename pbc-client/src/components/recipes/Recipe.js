@@ -46,10 +46,6 @@ class Recipe extends Component {
             Ingredients listed here
           </li>
         </ol>
-        <input
-          type="submit"
-          value="edit"
-        />
         <button onClick={this.handleDeleteRecipe}>
           Delete Recipe
         </button>
