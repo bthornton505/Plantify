@@ -17,6 +17,7 @@ class Recipe extends Component {
     const { recipe } = this.state
     this.props.deleteRecipe(recipe.id)
     this.setState({
+      recipe: null,
       isDeleted: true
     })
   }
@@ -57,4 +58,8 @@ class Recipe extends Component {
   }
 }
 
-export default connect(null, { deleteRecipe })(Recipe);
+const mapStateToProps = state => {
+  return { recipe: state.recipes.recipe}
+}
+
+export default connect(mapStateToProps, { deleteRecipe })(Recipe);
