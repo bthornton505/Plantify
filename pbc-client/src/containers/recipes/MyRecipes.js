@@ -22,7 +22,7 @@ class MyRecipes extends Component {
   }
 
   render() {
-    if (this.props.recipes && this.props.recipes.length !== 0){
+    if (this.props.recipes && this.props.recipes.length !== 0 ){
       return(
         <div>
           <AllRecipes recipes={ this.props.recipes }/>

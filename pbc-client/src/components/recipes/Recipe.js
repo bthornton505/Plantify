@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { deleteRecipe } from '../../actions/recipeActions';
+import RecipeDetails from './RecipeDetails';
+import { deleteRecipe, fetchRecipe } from '../../actions/recipeActions';
+
 
 class Recipe extends Component {
   constructor(props){
     super(props)
 
     this.state = {
-      recipe: props.location.state.recipe,
+      // recipe: props.location.state.recipe,
       isDeleted: false
     }
   }
 
+  componentDidMount = () => {
+    const recipeId = this.props.match.params.id
+    this.props.fetchRecipe(recipeId)
+  }
+
   handleDeleteRecipe = event => {
-    const { recipe } = this.state
-    this.props.deleteRecipe(recipe.id)
+    this.props.deleteRecipe(this.props.recipe.id)
     this.setState({
       recipe: null,
       isDeleted: true
@@ -27,35 +33,17 @@ class Recipe extends Component {
       return <Redirect to="/my_recipes" />
     }
 
-    const { recipe } = this.state
-    console.log(recipe)
+    // console.log(recipe)
     return(
       <div>
-        <h2>{ recipe.title }</h2>
-        <p>
-          <label> Description: </label>
-          { recipe.description }
-        </p>
-        <p>
-          <label>Cuisine: </label>
-          { recipe.cuisine }
-        </p>
-        <label>Ingredients: </label>
-        <ol>
-          <li>
-            Ingredients listed here
-          </li>
-        </ol>
-        <button onClick={this.handleDeleteRecipe}>
-          Delete Recipe
-        </button>
+        <RecipeDetails recipe={this.props.recipe} handleDeleteRecipe={this.handleDeleteRecipe}/>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  return { recipe: state.recipes.recipe}
+  return { recipe: state.recipes}
 }
 
-export default connect(mapStateToProps, { deleteRecipe })(Recipe);
+export default connect(mapStateToProps, { deleteRecipe, fetchRecipe })(Recipe);
