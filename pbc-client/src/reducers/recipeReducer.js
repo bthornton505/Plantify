@@ -5,20 +5,23 @@ export default (state = [], action) => {
   switch(action.type) {
 
     case types.REQUEST_RECIPES:
-      return action.recipes
+      return { ...state, recipes: action.recipes }
 
     case types.GET_RECIPE:
       return action.recipe
 
     case types.CREATE_RECIPE:
-      return state.concat(action.recipe)
+      // return state.concat(action.recipe)
+      return {
+        ...state, recipes:
+        [...state.recipes, action.recipe]
+      }
 
     case types.UPDATE_RECIPE:
       return state.map(recipe => recipe.id === action.recipe.id ? action.recipe : recipe)
 
     case types.DELETE_RECIPE:
-      const recipes = state.filter(recipe => recipe.id !== action.id)
-      return recipes
+      return { recipes: state.recipes.filter(recipe => recipe.id !== action.id)} 
 
     default:
       return state;
