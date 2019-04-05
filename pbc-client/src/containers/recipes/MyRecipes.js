@@ -8,7 +8,7 @@ class MyRecipes extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      recipes: this.props.user.recipes
+      user: this.props.user
     }
   }
 
@@ -22,21 +22,25 @@ class MyRecipes extends Component {
   }
 
   render() {
-    return(
-      <div>
-        <AllRecipes recipes={ this.state.recipes }/>
-        <Link to="/new_recipe">Create Recipe</Link>
-        <br></br>
-        <Link to={{
-          pathname: `/user/${this.props.user.username}`
-        }}>Profile</Link>
-      </div>
-    )
+    if (this.props.recipes && this.props.recipes.length !== 0){
+      return(
+        <div>
+          <AllRecipes recipes={ this.props.recipes }/>
+          <Link to="/new_recipe">Create Recipe</Link>
+          <br></br>
+          <Link to={{
+            pathname: `/user/${this.props.user.username}`
+          }}>Profile</Link>
+        </div>
+      )
+    } else {
+      return (<div></div>)
+    }
   }
 }
 
-// const mapStateToProps = state => {
-//   return { recipes: state.recipes}
-// }
+const mapStateToProps = state => {
+  return { recipes: state.recipes.recipes}
+}
 
-export default MyRecipes = withRouter(connect(null, { fetchRecipes })(MyRecipes));
+export default MyRecipes = withRouter(connect(mapStateToProps, { fetchRecipes })(MyRecipes));
