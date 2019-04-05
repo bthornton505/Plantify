@@ -91,6 +91,7 @@ export const deleteRecipe = recipeId => {
         "Authorization": `Bearer ${localStorage.auth_token}`
       }
     })
+    .then(response => response.json())
     .then(recipe => {
       dispatch(destroyRecipe(recipe))
     })
