@@ -8,9 +8,9 @@ const AllRecipes = props => {
       <li key={recipe.id}>
         <Link to={{
           pathname: `/recipe/${recipe.id}`,
-          state: {
-            recipe: recipe
-          }
+          // state: {
+          //   recipe: recipe
+          // }
         }}>{recipe.title}</Link>
       </li>
     )
