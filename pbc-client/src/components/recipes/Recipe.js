@@ -23,7 +23,6 @@ class Recipe extends Component {
   handleDeleteRecipe = event => {
     this.props.deleteRecipe(this.props.recipe.id)
     this.setState({
-      recipe: null,
       isDeleted: true
     })
   }
