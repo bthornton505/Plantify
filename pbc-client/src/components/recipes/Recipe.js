@@ -32,7 +32,6 @@ class Recipe extends Component {
       return <Redirect to="/my_recipes" />
     }
 
-    // console.log(recipe)
     return(
       <div>
         <RecipeDetails recipe={this.props.recipe} handleDeleteRecipe={this.handleDeleteRecipe}/>
@@ -40,6 +39,8 @@ class Recipe extends Component {
     )
   }
 }
+
+
 
 const mapStateToProps = state => {
   return { recipe: state.recipes}
