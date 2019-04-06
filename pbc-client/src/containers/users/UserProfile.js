@@ -31,9 +31,6 @@ class UserProfile extends Component {
             <label>Email: </label>
             {this.props.user.email}
           </p>
-          <Link to="/new_recipe">Create Recipe</Link>
-          <br></br>
-          <Link to="/my_recipes">My Recipes</Link>
         </div>
         <button onClick={this.handleLogout}>Log Out</button>
       </div>
@@ -42,3 +39,6 @@ class UserProfile extends Component {
 }
 
 export default UserProfile = withRouter(connect(null, { logout })(UserProfile));
+
+// {this.props.user.recipes === 0 ?
+//   <Link to="/new_recipe">Create Recipe</Link> : <Link to="/my_recipes">My Recipes</Link>}
