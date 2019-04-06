@@ -30,16 +30,16 @@ class MyRecipes extends Component {
   }
 
   render() {
-    if (this.props.recipes && this.props.recipes.length !== 0 ){
+    // if (this.props.recipes && this.props.recipes.length !== 0 ){
       return(
         <div>
           <AllRecipes recipes={ this.props.recipes }/>
           <Link to="/new_recipe">Create Recipe</Link>
         </div>
       )
-    } else {
-      return (<div></div>)
-    }
+    // } else {
+    //   return (<div></div>)
+    // }
   }
 }
 
