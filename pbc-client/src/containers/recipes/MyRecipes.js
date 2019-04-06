@@ -23,7 +23,10 @@ class MyRecipes extends Component {
   //     }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    return this.props.recipes !== nextProps.recipes || nextState.recipes !== this.props.recipes;
+    return this.props.user.recipes == nextState.user.recipes;
+    // if (this.state.user.recipes === nextState.user.recipes) {
+    //   return false
+    // }
   }
 
   render() {
@@ -31,7 +34,7 @@ class MyRecipes extends Component {
       return(
         <div>
           <AllRecipes recipes={ this.props.recipes }/>
-          <Link to="/new_recipe">Create Recipe</Link>    
+          <Link to="/new_recipe">Create Recipe</Link>
         </div>
       )
     } else {
