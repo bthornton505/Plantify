@@ -26,4 +26,8 @@ const AllRecipes = props => {
     )
 }
 
+AllRecipes.defaultProps = {
+  recipes: []
+}
+
 export default AllRecipes;
