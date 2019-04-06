@@ -17,8 +17,7 @@ class MyRecipes extends Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
-    let shouldUpdate = this.props.recipes !== nextProps.recipes;
-    return shouldUpdate;
+    return this.props.recipes !== nextProps.recipes || this.props.recipes !== nextState.recipes;
   }
 
   render() {
