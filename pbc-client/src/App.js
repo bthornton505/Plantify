@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Signup from './containers/Signup';
 import Login from './containers/Login';
 import MyRecipes from './containers/recipes/MyRecipes';
@@ -39,6 +39,8 @@ class App extends Component {
     const userViews = (
       <div>
         <h1>Plant Based Chef</h1>
+        <p><Link to={{ pathname: `/user/${user.username}`}}>Profile</Link><br></br><Link to="/my_recipes">My Recipes</Link></p>
+
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/user/:username" render={() => <UserProfile user={user} />} />
         <Route exact path="/my_recipes" render={() => <MyRecipes user={user} />} />
