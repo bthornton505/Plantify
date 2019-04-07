@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Signup from './containers/Signup';
 import Login from './containers/Login';
+import Navigation from './routes/Navigation'
 import MyRecipes from './containers/recipes/MyRecipes';
 import RecipeForm from './components/recipes/RecipeForm';
 import Recipe from './components/recipes/Recipe'
@@ -30,6 +31,7 @@ class App extends Component {
     const guestViews = (
       <div>
       <h1>Plant Based Chef</h1>
+        <Navigation isAuthenticated={isAuthenticated}/>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
@@ -39,8 +41,7 @@ class App extends Component {
     const userViews = (
       <div>
         <h1>Plant Based Chef</h1>
-        <p><Link to={{ pathname: `/user/${user.username}`}}>Profile</Link><br></br><Link to="/my_recipes">My Recipes</Link></p>
-
+        <Navigation isAuthenticated={isAuthenticated} user={user}/>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/user/:username" render={() => <UserProfile user={user} />} />
         <Route exact path="/my_recipes" render={() => <MyRecipes user={user} />} />
@@ -49,6 +50,7 @@ class App extends Component {
       </div>
     )
     console.log(isAuthenticated)
+    
     return (
       <Router>
         {isAuthenticated ? userViews : guestViews}
@@ -65,3 +67,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { checkToken })(App);
+
+// <p><Link to={{ pathname: `/user/${user.username}`}}>Profile</Link><br></br><Link to="/my_recipes">My Recipes</Link></p>
