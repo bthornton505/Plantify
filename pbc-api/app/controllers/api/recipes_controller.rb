@@ -12,7 +12,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def show
-    @recipe = current_user.recipes.find_by(id: params[:id])
+    @recipe = @user.recipes.find_by(id: params[:id])
     json_response(@recipe)
   end
 
@@ -26,7 +26,7 @@ class Api::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
 
-    render json: @recipe
+    json_response(@recipe)
   end
 
   private
