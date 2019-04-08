@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import RecipeDetails from './RecipeDetails';
 import { deleteRecipe, fetchRecipe } from '../../actions/recipeActions';
 
@@ -47,3 +47,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { deleteRecipe, fetchRecipe })(Recipe);
+// Recipe = withRouter(connect(mapStateToProps, { deleteRecipe, fetchRecipe })(Recipe));
+// connect(mapStateToProps, { deleteRecipe, fetchRecipe })(Recipe);

@@ -8,7 +8,8 @@ export default (state = [], action) => {
       return { ...state, recipes: action.recipes }
 
     case types.GET_RECIPE:
-      return action.recipe
+      return  action.recipe
+      // { ...state, recipe: action.recipe }
 
     case types.CREATE_RECIPE:
       // return state.concat(action.recipe)
@@ -21,8 +22,7 @@ export default (state = [], action) => {
       return state.map(recipe => recipe.id === action.recipe.id ? action.recipe : recipe)
 
     case types.DELETE_RECIPE:
-      return { ...state, recipes:[ state.filter(recipe => recipe.id !== action.id) ] } 
-        // { ...state, all: state.all.filter(todo => todo.id !== action.payload.id) }
+      return { recipes: state.recipes.filter(recipe => recipe.id !== action.recipe.id) }
 
     default:
       return state;

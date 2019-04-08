@@ -22,12 +22,12 @@ class MyRecipes extends Component {
   //       }
   //     }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    return this.props.user.recipes == nextState.user.recipes;
-    // if (this.state.user.recipes === nextState.user.recipes) {
-    //   return false
-    // }
-  }
+  // shouldComponentUpdate = (nextProps, nextState) => {
+  //   return this.props.user.recipes == nextState.user.recipes;
+  //   // if (this.state.user.recipes === nextState.user.recipes) {
+  //   //   return false
+  //   // }
+  // }
 
   render() {
     // if (this.props.recipes && this.props.recipes.length !== 0 ){
