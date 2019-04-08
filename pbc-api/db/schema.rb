@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_181140) do
   create_table "recipes", force: :cascade do |t|
     t.text "title"
     t.text "description"
+    t.text "instructions"
     t.string "ingredients", default: [], array: true
     t.string "cuisine"
     t.integer "user_id"
