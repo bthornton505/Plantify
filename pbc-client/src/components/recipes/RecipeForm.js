@@ -10,7 +10,8 @@ class RecipeForm extends Component {
     this.state = {
       title: "",
       description: "",
-      ingredients: [],
+      instructions: "",
+      ingredients: "",
       cuisine: "",
       userId: this.props.user.id,
       isCreated: false
@@ -64,6 +65,15 @@ class RecipeForm extends Component {
             />
           </p>
           <p>
+            <label>Description: </label>
+            <textarea
+              type="text"
+              name="description"
+              value={this.state.description}
+              onChange={this.handleChange}
+            />
+          </p>
+          <p>
             <label>Cuisine: </label>
             <input
               type="text"
@@ -109,11 +119,11 @@ class RecipeForm extends Component {
             />
           </p>
           <p>
-            <label>Description: </label>
+            <label>Instructions: </label>
             <textarea
               type="text"
-              name="description"
-              value={this.state.description}
+              name="instructions"
+              value={this.state.instructions}
               onChange={this.handleChange}
             />
           </p>
