@@ -50,7 +50,7 @@ class App extends Component {
       </div>
     )
     console.log(isAuthenticated)
-    
+
     return (
       <Router>
         {isAuthenticated ? userViews : guestViews}
@@ -62,7 +62,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
-    user: state.auth.currentUser
+    user: state.auth.currentUser,
+    // recipes: state.auth.currentUser.recipes
   }
 }
 
