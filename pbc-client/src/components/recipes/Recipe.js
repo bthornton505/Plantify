@@ -10,7 +10,6 @@ class Recipe extends Component {
     super(props)
 
     this.state = {
-      // recipe: props.location.state.recipe,
       isDeleted: false
     }
   }
@@ -47,5 +46,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { deleteRecipe, fetchRecipe })(Recipe);
-// Recipe = withRouter(connect(mapStateToProps, { deleteRecipe, fetchRecipe })(Recipe));
-// connect(mapStateToProps, { deleteRecipe, fetchRecipe })(Recipe);
