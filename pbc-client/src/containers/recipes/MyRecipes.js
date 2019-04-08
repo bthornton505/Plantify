@@ -16,12 +16,6 @@ class MyRecipes extends Component {
     this.props.fetchRecipes()
   }
 
-  // componentWillReceiveProps = (nextProps) => {
-  //       if (this.props.recipes !== nextProps.recipes) {
-  //         this.setState({recipes: nextProps.recipes});
-  //       }
-  //     }
-
   // shouldComponentUpdate = (nextProps, nextState) => {
   //   return this.props.user.recipes == nextState.user.recipes;
   //   // if (this.state.user.recipes === nextState.user.recipes) {
@@ -30,16 +24,12 @@ class MyRecipes extends Component {
   // }
 
   render() {
-    // if (this.props.recipes && this.props.recipes.length !== 0 ){
-      return(
-        <div>
-          <AllRecipes recipes={ this.props.recipes }/>
-          <Link to="/new_recipe">Create Recipe</Link>
-        </div>
-      )
-    // } else {
-    //   return (<div></div>)
-    // }
+    return(
+      <div>
+        <AllRecipes recipes={ this.props.recipes }/>
+        <Link to="/new_recipe">Create Recipe</Link>
+      </div>
+    )
   }
 }
 
