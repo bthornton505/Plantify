@@ -19,6 +19,10 @@ const RecipeDetails = props => {
         Ingredients listed here
       </li>
     </ol>
+    <p>
+      <label>Instructions: </label>
+      { props.recipe.instructions }
+    </p>
     <button onClick={props.handleDeleteRecipe}>
       Delete Recipe
     </button>
