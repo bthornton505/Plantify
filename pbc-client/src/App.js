@@ -43,7 +43,7 @@ class App extends Component {
         <h1>Plant Based Chef</h1>
         <Navigation isAuthenticated={isAuthenticated} user={user}/>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/user/:username" render={() => <UserProfile user={user} />} />
+        <Route exact path="/user_profile" render={() => <UserProfile user={user} />} />
         <Route exact path="/my_recipes" render={() => <MyRecipes user={user} />} />
         <Route exact path="/new_recipe" render={() => <RecipeForm user={user} />} />
         <Route exact path="/recipe/:id" component={Recipe} />
