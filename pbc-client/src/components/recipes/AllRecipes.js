@@ -19,9 +19,9 @@ const AllRecipes = props => {
     return(
       <div>
         <label>Recipes: </label>
-        <ol>
+        <ul>
           {recipeList}
-        </ol>
+        </ul>
       </div>
     )
 }

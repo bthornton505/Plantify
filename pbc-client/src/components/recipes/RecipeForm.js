@@ -11,7 +11,7 @@ class RecipeForm extends Component {
       title: "",
       description: "",
       instructions: "",
-      ingredients: "",
+      ingredients: [],
       cuisine: "",
       userId: this.props.user.id,
       isCreated: false
