@@ -23,7 +23,7 @@ class Navigation extends Component {
 
     const userNav = (
       <ul>
-        <li><Link to="/user/:username">Profile</Link></li>
+        <li><Link to="/user_profile">Profile</Link></li>
         <li><Link to="/my_recipes">My Recipes</Link></li>
         <li onClick={() => this.handleLogout()}>Log Out</li>
       </ul>
