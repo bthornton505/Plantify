@@ -24,7 +24,7 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault()
     if (this.props.authenticate(this.state)) {
-      this.props.history.push(`/user/${this.state.username}`)
+      this.props.history.push(`/user_profile`)
       window.alert("You're Logged In!")
     } else {
       window.alert("Sorry, something went wrong. Please try logging in again.")
@@ -37,15 +37,7 @@ class Login extends Component {
       <br></br>
       Login!
         <form onSubmit={this.handleSubmit}>
-          <p>
-            <label>Username: </label>
-            <input
-              type="text"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-              />
-          </p>
+
           <p>
             <label>Email: </label>
             <input
@@ -74,3 +66,15 @@ class Login extends Component {
 }
 
 export default Login = withRouter(connect(null, { authenticate })(Login));
+
+// <p>
+//   <label>Username: </label>
+//   <input
+//     type="text"
+//     name="username"
+//     value={this.state.username}
+//     onChange={this.handleChange}
+//     />
+// </p>
+
+// ${this.state.username}
