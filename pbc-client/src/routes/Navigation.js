@@ -12,7 +12,7 @@ class Navigation extends Component {
   }
 
   render() {
-    const { user } = this.props
+    // const { user } = this.props
     const guestNav = (
       <ul>
         <li><Link to="/">About</Link></li>
