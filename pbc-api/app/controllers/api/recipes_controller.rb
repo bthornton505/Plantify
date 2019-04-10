@@ -36,7 +36,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.permit(:title, :description, :instructions, :ingredients, :cuisine, :user_id)
+    params.require(:recipe).permit(:title, :description, :instructions, :cuisine, :user_id, :ingredients => [])
   end
 
 end
