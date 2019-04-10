@@ -4,7 +4,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.text :title
       t.text :description
       t.text :instructions
-      t.string :ingredients, array: true, default: []
+      t.string :ingredients, array: true
       t.string :cuisine
       t.integer :user_id
 
