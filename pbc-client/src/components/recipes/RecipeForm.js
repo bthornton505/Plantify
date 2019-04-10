@@ -11,6 +11,7 @@ class RecipeForm extends Component {
       title: "",
       description: "",
       instructions: "",
+      ingredient: "",
       ingredients: [],
       cuisine: "",
       userId: this.props.user.id,
@@ -18,12 +19,25 @@ class RecipeForm extends Component {
     }
   }
 
-  updateIngredientArray = (value) => {
-    let updatedArr = [...this.state.ingredients]
-    updatedArr.push(value)
+  addIngredient = () => {
+    const { ingredients, ingredient } = this.state;
+    ingredients.push(ingredient)
+
     this.setState({
-      updatedArr
+      ingredients: ingredients,
+      ingredient: ''
     })
+  }
+
+  addIngredient = event => {
+    event.preventDefault()
+    const { ingredients, ingredient } = this.state;
+    ingredients.push(ingredient)
+
+    this.setState({
+      ingredients,
+      ingredient: ''
+    }, () => console.log(ingredients))
   }
 
   handleChange = event => {
@@ -48,7 +62,8 @@ class RecipeForm extends Component {
     if (this.state.isCreated === true){
       return <Redirect to="/my_recipes" />
     }
-    // const { ingredients } = this.state
+    const { ingredient } = this.state
+
     return(
       <div>
       <p>Wanna make a new recipe? Go for it!</p>
@@ -82,41 +97,26 @@ class RecipeForm extends Component {
               onChange={this.handleChange}
             />
           </p>
+          {this.state.ingredients}
           <p>
             <label>Ingredient: </label>
             <input
               type="text"
-              name="ingredients"
-              // value={this.updateIngredientArray}
+              name="ingredient"
+              value={ingredient}
               onChange={this.handleChange}
             />
+            <button onClick={this.addIngredient}>Add</button>
           </p>
           <p>
-            <label>Ingredient: </label>
-            <input
-              type="text"
-              name="ingredients"
-              // value={this.updateIngredientArray}
-              onChange={this.handleChange}
-            />
-          </p>
-          <p>
-            <label>Ingredient: </label>
-            <input
-              type="text"
-              name="ingredients"
-              // value={this.updateIngredientArray}
-              onChange={this.handleChange}
-            />
-          </p>
-          <p>
-            <label>Ingredient: </label>
-            <input
-              type="text"
-              name="ingredients"
-              // value={this.updateIngredientArray}
-              onChange={this.handleChange}
-            />
+            <label>Current Ingredients: </label>
+            {
+              this.state.ingredients.map(ingredient =>
+                <ul>
+                  <li>{ingredient}</li>
+                </ul>
+              )
+            }
           </p>
           <p>
             <label>Instructions: </label>
