@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { fetchRecipes } from '../../actions/recipeActions'
 import AllRecipes from '../../components/recipes/AllRecipes';
 
@@ -16,20 +16,10 @@ class MyRecipes extends Component {
     this.props.fetchRecipes()
   }
 
-  // shouldComponentUpdate = (nextProps, nextState) => {
-  //   return this.props.user.recipes == nextState.user.recipes;
-  //   // if (this.state.user.recipes === nextState.user.recipes) {
-  //   //   return false
-  //   // }
-  // }
-
   render() {
     return(
       <div>
         <AllRecipes recipes={ this.props.recipes }/>
-        <Link className="black link hover-dark-green" to="/new_recipe">
-          Create Recipe
-        </Link>
       </div>
     )
   }
