@@ -15,6 +15,9 @@ class Navigation extends Component {
     const guestNav = (
       <>
         <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
+          Home
+        </NavLink>
+        <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/about">
           About
         </NavLink>
         <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/signup">
@@ -33,6 +36,9 @@ class Navigation extends Component {
         </NavLink>
         <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/my_recipes">
           My Recipes
+        </NavLink>
+        <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/about">
+          About
         </NavLink>
         <NavLink onClick={this.handleLogout} className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
           Log Out

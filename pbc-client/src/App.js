@@ -7,6 +7,7 @@ import Navigation from './routes/Navigation'
 import MyRecipes from './containers/recipes/MyRecipes';
 import RecipeForm from './components/recipes/RecipeForm';
 import Recipe from './components/recipes/Recipe'
+import About from './components/About';
 import LandingPage from './components/LandingPage';
 import UserProfile from './containers/users/UserProfile'
 import { checkToken } from './actions/authActions';
@@ -34,6 +35,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/about" component={About} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
         </Switch>
@@ -47,6 +49,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/about" component={About} />
           <Route exact path="/user_profile" render={() => <UserProfile user={user} />} />
           <Route exact path="/my_recipes" render={() => <MyRecipes user={user} />} />
           <Route exact path="/new_recipe" render={() => <RecipeForm user={user} />} />
