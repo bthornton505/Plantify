@@ -32,15 +32,15 @@ class Login extends Component {
 
   render() {
     return(
-      <main class="pa4 black-80">
-        <form class="measure center" onSubmit={this.handleSubmit}>
-          <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
-            <legend class="f4 fw6 ph0 mh0">Login</legend>
+      <main className="pa4 black-80">
+        <form className="measure center" onSubmit={this.handleSubmit}>
+          <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+            <legend className="f4 fw6 ph0 mh0">Login</legend>
 
-            <div class="mt3">
-              <label class="db fw6 lh-copy f6">Email: </label>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6">Email: </label>
               <input
-                class="b pa2 input-reset ba bg-transparent w-100"
+                className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="email"
                 value={this.state.email}
@@ -48,10 +48,10 @@ class Login extends Component {
                 />
             </div>
 
-            <div class="mt3">
-              <label class="db fw6 lh-copy f6">Password: </label>
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6">Password: </label>
               <input
-                class="b pa2 input-reset ba bg-transparent w-100"
+                className="b pa2 input-reset ba bg-transparent w-100"
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -60,8 +60,8 @@ class Login extends Component {
             </div>
 
           </fieldset>
-          <div class="">
-            <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" />
+          <div className="">
+            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" />
           </div>
         </form>
       </main>
