@@ -26,9 +26,9 @@ class Signup extends Component {
     event.preventDefault()
     const { username, email, password } = this.state
     const user = { username: username, email: email, password: password}
-    
+
     if (this.props.signup(user)) {
-      this.props.history.push(`/user/${user.username}`)
+      this.props.history.push(`/user_profile`)
       window.alert(`Thank you for signing up ${user.username}!`)
     } else {
       window.alert("We're having issues creating your account.")
@@ -37,49 +37,60 @@ class Signup extends Component {
 
   render() {
     return(
-      <div>
-      <br></br>
-      Sign Up!
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <label>Username: </label>
-            <input
-              type="text"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
+      <main class="pa4 black-80">
+        <form class="measure center" onSubmit={this.handleSubmit}>
+          <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+            <legend class="f4 fw6 ph0 mh0">Sign Up</legend>
+
+            <div class="mt3">
+              <label class="db fw6 lh-copy f6">Username: </label>
+              <input
+                class="b pa2 input-reset ba bg-transparent w-100"
+                type="text"
+                name="username"
+                value={this.state.username}
+                onChange={this.handleChange}
+                />
+            </div>
+
+            <div class="mt3">
+              <label class="db fw6 lh-copy f6">Email: </label>
+              <input
+                class="b pa2 input-reset ba bg-transparent w-100"
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+                />
+            </div>
+
+            <div class="mt3">
+              <label class="db fw6 lh-copy f6">Password: </label>
+              <input
+                class="b pa2 input-reset ba bg-transparent w-100"
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                />
+            </div>
+
+            <div class="mt3">
+              <label class="db fw6 lh-copy f6">Password Confirmation: </label>
+              <input
+                class="b pa2 input-reset ba bg-transparent w-100"
+                type='password'
+                name="password_confirmation"
+                value={ this.state.password_confirmation }
+                onChange={ this.handleChange }
               />
-          </p>
-          <p>
-            <label>Email: </label>
-            <input
-              type="text"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              />
-          </p>
-          <p>
-            <label>Password: </label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              />
-          </p>
-          <p>
-            <label>Password Confirmation: </label>
-            <input
-              type='password'
-              name="password_confirmation"
-              value={ this.state.password_confirmation }
-              onChange={ this.handleChange }
-            />
-          </p>
-          <input type="submit"/>
+            </div>
+          </fieldset>
+          <div class="">
+            <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" />
+          </div>
         </form>
-      </div>
+      </main>
     )
   }
 }
