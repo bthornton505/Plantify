@@ -32,7 +32,7 @@ const RecipeDetails = props => {
 
       <div>
         <label>Instructions:</label>
-        <p>
+        <p className="tc">
           { instructions }
         </p>
       </div>
