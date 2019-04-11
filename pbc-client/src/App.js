@@ -58,7 +58,7 @@ class App extends Component {
           <Route exact path="/recipe/:id" component={Recipe} />
         </Switch>
 
-        
+
       </div>
     )
     console.log(isAuthenticated)
