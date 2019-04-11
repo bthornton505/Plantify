@@ -12,28 +12,42 @@ class Navigation extends Component {
   }
 
   render() {
-    // const { user } = this.props
     const guestNav = (
-      <ul>
-        <li><Link to="/">About</Link></li>
-        <li><Link to="/signup">Sign Up</Link></li>
-        <li><Link to="/login">Login</Link></li>
-      </ul>
+      <nav className="bt bb tc mw7 center mt4">
+        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
+          About
+        </Link>
+        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/signup">
+          Sign Up
+        </Link>
+        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/login">
+          Login
+        </Link>
+        <Link onClick={this.handleLogout} className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
+          Log Out
+        </Link>
+      </nav>
     )
 
     const userNav = (
-      <ul>
-        <li><Link to="/user_profile">Profile</Link></li>
-        <li><Link to="/my_recipes">My Recipes</Link></li>
-        <li onClick={() => this.handleLogout()}>Log Out</li>
-      </ul>
+      <nav className="bt bb tc mw7 center mt4">
+        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/user_profile">
+          Profile
+        </Link>
+        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/my_recipes">
+          My Recipes
+        </Link>
+        <Link onClick={this.handleLogout} className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
+          Log Out
+        </Link>
+      </nav>
     )
 
     return(
-      <header>
-        <nav>
-          {this.props.isAuthenticated ? userNav : guestNav}
-        </nav>
+      <header className="bg-white black-80 tc pv4 avenir">
+        <h1 className="mt2 mb0 baskerville i fw1 f1">Plantify</h1>
+        <h2 className="mt2 mb0 f6 fw4 ttu tracked">Plantify your life!</h2>
+        {this.props.isAuthenticted ? userNav : guestNav}
       </header>
     )
   }
