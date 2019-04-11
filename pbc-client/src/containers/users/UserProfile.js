@@ -12,24 +12,20 @@ class UserProfile extends Component {
     }
   }
 
-  // handleLogout = () => {
-  //   this.props.logout()
-  //   localStorage.clear()
-  //   this.props.history.push('/login')
-  // }
-
   render() {
+    const { user } = this.props
+
     return(
-      <div>
-        <h1>User Profile</h1>
+      <div class="tc ph4">
+        <h1 class="f3 f2-m f1-l fw2 black-90 mv3">Welcome back, {user.username}!</h1>
         <div>
           <p>
             <label>Username: </label>
-            {this.props.user.username}
+            {user.username}
           </p>
           <p>
             <label>Email: </label>
-            {this.props.user.email}
+            {user.email}
           </p>
         </div>
       </div>
@@ -38,7 +34,3 @@ class UserProfile extends Component {
 }
 
 export default UserProfile = withRouter(connect(null, { logout })(UserProfile));
-
-// {this.props.user.recipes === 0 ?
-//   <Link to="/new_recipe">Create Recipe</Link> : <Link to="/my_recipes">My Recipes</Link>}
-// <button onClick={this.handleLogout}>Log Out</button>
