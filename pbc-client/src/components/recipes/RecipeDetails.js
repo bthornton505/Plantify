@@ -11,28 +11,36 @@ const RecipeDetails = props => {
   // })
 
   return (
-    <div>
-    <h2>{ title }</h2>
-    <p>
-      <label> Description: </label>
-      { description }
-    </p>
-    <p>
-      <label>Cuisine: </label>
-      { cuisine }
-    </p>
-    <div>
-      <label>Ingredients: </label>
-      <Ingredient ingredients={ingredients}/>
-      {console.log(ingredients)}
-    </div>
-    <p>
-      <label>Instructions: </label>
-      { instructions }
-    </p>
-    <button onClick={props.handleDeleteRecipe}>
-      Delete Recipe
-    </button>
+    <div className="tc ph4">
+    <h2 className="f3 f2-m f1-l fw2 black-90 mv3">
+      { title }
+    </h2>
+
+      <p>
+        { description }
+      </p>
+
+      <p>
+        { cuisine } inspired cuisine
+      </p>
+
+      <div>
+        <label>Ingredients: </label>
+        <Ingredient ingredients={ingredients}/>
+        {console.log(ingredients)}
+      </div>
+
+      <div>
+        <label>Instructions:</label>
+        <p>
+          { instructions }
+        </p>
+      </div>
+
+      <button  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"onClick={props.handleDeleteRecipe}>
+        Delete Recipe
+      </button>
+
     </div>
   )
 }
