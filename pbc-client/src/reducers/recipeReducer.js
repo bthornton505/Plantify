@@ -8,7 +8,7 @@ export default (state = [], action) => {
       return { ...state, recipes: action.recipes }
 
     case types.GET_RECIPE:
-      return  action.recipe
+      return action.recipe
       // { ...state, recipe: action.recipe }
 
     case types.CREATE_RECIPE:

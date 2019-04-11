@@ -2,8 +2,9 @@ import React from 'react'
 
 const Ingredient = props => {
   const ingredients = props.ingredients
-  let ingredientList = ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)
-  // console.log(ingredientList)
+  // let ingredientList = ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)
+
+  let ingredientList = ingredients ? ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>) : "Loading"
 
   return(
     <ul>
