@@ -41,7 +41,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
         </Switch>
 
-        <Footer />
+        
       </div>
     )
 
@@ -58,7 +58,7 @@ class App extends Component {
           <Route exact path="/recipe/:id" component={Recipe} />
         </Switch>
 
-        <Footer />
+        
       </div>
     )
     console.log(isAuthenticated)
