@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signup from './containers/Signup';
 import Login from './containers/Login';
 import Navigation from './routes/Navigation'
+import Footer from './routes/Footer'
 import MyRecipes from './containers/recipes/MyRecipes';
 import RecipeForm from './components/recipes/RecipeForm';
 import Recipe from './components/recipes/Recipe'
@@ -40,6 +41,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
         </Switch>
 
+        <Footer />
       </div>
     )
 
@@ -56,6 +58,7 @@ class App extends Component {
           <Route exact path="/recipe/:id" component={Recipe} />
         </Switch>
 
+        <Footer />
       </div>
     )
     console.log(isAuthenticated)
