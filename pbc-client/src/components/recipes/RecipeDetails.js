@@ -1,27 +1,34 @@
 import React from 'react';
+import Ingredient from './Ingredient'
 
 const RecipeDetails = props => {
+  const { title, description, cuisine, ingredients, instructions } = props.recipe
+
+  // const ingredientsList = props.recipe.ingredients.map(ingredient => {
+  //   return(
+  //     <li>{ingredient}</li>
+  //   )
+  // })
 
   return (
     <div>
-    <h2>{ props.recipe.title }</h2>
+    <h2>{ title }</h2>
     <p>
       <label> Description: </label>
-      { props.recipe.description }
+      { description }
     </p>
     <p>
       <label>Cuisine: </label>
-      { props.recipe.cuisine }
+      { cuisine }
     </p>
-    <label>Ingredients: </label>
-    <ol>
-      <li>
-        Ingredients listed here
-      </li>
-    </ol>
+    <div>
+      <label>Ingredients: </label>
+      <Ingredient ingredients={ingredients}/>
+      {console.log(ingredients)}
+    </div>
     <p>
       <label>Instructions: </label>
-      { props.recipe.instructions }
+      { instructions }
     </p>
     <button onClick={props.handleDeleteRecipe}>
       Delete Recipe

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Redirect, withRouter } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import RecipeDetails from './RecipeDetails';
 import { deleteRecipe, fetchRecipe } from '../../actions/recipeActions';
 
@@ -13,6 +13,11 @@ class Recipe extends Component {
       isDeleted: false
     }
   }
+
+  // renderIngredients = () => {
+  //   const { ingredients } = this.props.recipe
+  //   ingredients.map(ingredient => <li>{ingredient}</li>)
+  // }
 
   componentDidMount = () => {
     const recipeId = this.props.match.params.id
@@ -46,3 +51,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { deleteRecipe, fetchRecipe })(Recipe);
+
+// ingredients={this.props.recipe.ingredients}
