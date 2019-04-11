@@ -33,33 +33,36 @@ class Login extends Component {
 
   render() {
     return(
-      <div>
-      <br></br>
-      Login!
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <label>Email: </label>
-            <input
-              type="text"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              />
-          </p>
-          <p>
-            <label>Password: </label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              />
-          </p>
-          <input
-            type="submit"
-            />
+      <main class="pa4 black-80">
+        <form class="measure center" onSubmit={this.handleSubmit}>
+          <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+            <legend class="f4 fw6 ph0 mh0">Login</legend>
+            <div class="mt3">
+              <label class="db fw6 lh-copy f6">Email: </label>
+              <input
+                class="b pa2 input-reset ba bg-transparent w-100"
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+                />
+            </div>
+            <div class="mt3">
+              <label class="db fw6 lh-copy f6">Password: </label>
+              <input
+                class="b pa2 input-reset ba bg-transparent w-100"
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                />
+            </div>
+          </fieldset>
+          <div class="">
+            <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" />
+          </div>
         </form>
-      </div>
+      </main>
     )
   }
 }
