@@ -38,7 +38,7 @@ class Login extends Component {
             <legend className="f4 fw6 ph0 mh0">Login</legend>
 
             <div className="mt3">
-              <label className="db fw6 lh-copy f6">Email: </label>
+              <label className="db fw6 lh-copy f6">Email</label>
               <input
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
@@ -49,7 +49,7 @@ class Login extends Component {
             </div>
 
             <div className="mt3">
-              <label className="db fw6 lh-copy f6">Password: </label>
+              <label className="db fw6 lh-copy f6">Password</label>
               <input
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="password"
