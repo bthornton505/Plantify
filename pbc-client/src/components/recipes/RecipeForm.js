@@ -65,69 +65,94 @@ class RecipeForm extends Component {
     const { ingredient } = this.state
 
     return(
-      <div>
-      <p>Wanna make a new recipe? Go for it!</p>
-      <h1>New Recipe</h1>
+      <div className="tc ph4">
+      <h1 className="f3 f2-m f1-l fw2 black-90 mv3">Wanna make a new recipe? Go for it!</h1>
 
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <label>Title: </label>
-            <input
-              type="text"
-              name="title"
-              value={this.state.title}
-              onChange={this.handleChange}
-            />
-          </p>
-          <p>
-            <label>Description: </label>
-            <textarea
-              type="text"
-              name="description"
-              value={this.state.description}
-              onChange={this.handleChange}
-            />
-          </p>
-          <p>
-            <label>Cuisine: </label>
-            <input
-              type="text"
-              name="cuisine"
-              value={this.state.cuisine}
-              onChange={this.handleChange}
-            />
-          </p>
-          {this.state.ingredients}
-          <p>
-            <label>Ingredient: </label>
-            <input
-              type="text"
-              name="ingredient"
-              value={ingredient}
-              onChange={this.handleChange}
-            />
-            <button onClick={this.addIngredient}>Add</button>
-          </p>
-          <p>
-            <label>Current Ingredients: </label>
-            {
-              this.state.ingredients.map(ingredient =>
-                <ul>
-                  <li>{ingredient}</li>
-                </ul>
-              )
-            }
-          </p>
-          <p>
-            <label>Instructions: </label>
-            <textarea
-              type="text"
-              name="instructions"
-              value={this.state.instructions}
-              onChange={this.handleChange}
-            />
-          </p>
-          <input type="submit"/>
+        <form className="measure center" onSubmit={this.handleSubmit}>
+          <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6">Title: </label>
+              <input
+                className="b pa2 input-reset ba bg-transparent w-100"
+                type="text"
+                name="title"
+                value={this.state.title}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6">Description: </label>
+              <textarea
+                className="b pa2 input-reset ba bg-transparent w-100"
+                type="text"
+                name="description"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6">Cuisine: </label>
+              <input
+                className="b pa2 input-reset ba bg-transparent w-100"
+                type="text"
+                name="cuisine"
+                value={this.state.cuisine}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6">Ingredient: </label>
+              <input
+                className="b pa2 input-reset ba bg-transparent w-100"
+                type="text"
+                name="ingredient"
+                value={ingredient}
+                onChange={this.handleChange}
+              />
+
+              <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+                <div className="">
+                  <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" onClick={this.addIngredient}>
+                    Add
+                  </button>
+                </div>
+              </fieldset>
+
+            </div>
+
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6">Current Ingredients: </label>
+              {
+                this.state.ingredients.map(ingredient =>
+                  <ul className="list pl0 measure center">
+                    <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30">
+                      {ingredient}
+                    </li>
+                  </ul>
+                )
+              }
+            </div>
+
+            <div className="mt3">
+              <label className="db fw6 lh-copy f6">Instructions: </label>
+              <textarea
+                className="b pa2 input-reset ba bg-transparent w-100"
+                type="text"
+                name="instructions"
+                value={this.state.instructions}
+                onChange={this.handleChange}
+              />
+            </div>
+
+          </fieldset>
+
+          <div className="">
+            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" />
+          </div>
         </form>
       </div>
     )
