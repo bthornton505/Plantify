@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link, withRouter} from 'react-router-dom'
+import { NavLink, withRouter} from 'react-router-dom'
 import { logout } from '../actions/authActions';
 
 class Navigation extends Component {
@@ -13,41 +13,43 @@ class Navigation extends Component {
 
   render() {
     const guestNav = (
-      <nav className="bt bb tc mw7 center mt4">
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
+      <>
+        <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
           About
-        </Link>
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/signup">
+        </NavLink>
+        <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/signup">
           Sign Up
-        </Link>
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/login">
+        </NavLink>
+        <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/login">
           Login
-        </Link>
-        <Link onClick={this.handleLogout} className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
+        </NavLink>
+        <NavLink onClick={this.handleLogout} className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
           Log Out
-        </Link>
-      </nav>
+        </NavLink>
+      </>
     )
 
     const userNav = (
-      <nav className="bt bb tc mw7 center mt4">
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/user_profile">
+      <>
+        <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/user_profile">
           Profile
-        </Link>
-        <Link className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/my_recipes">
+        </NavLink>
+        <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/my_recipes">
           My Recipes
-        </Link>
-        <Link onClick={this.handleLogout} className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
+        </NavLink>
+        <NavLink onClick={this.handleLogout} className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
           Log Out
-        </Link>
-      </nav>
+        </NavLink>
+      </>
     )
 
     return(
       <header className="bg-white black-80 tc pv4 avenir">
         <h1 className="mt2 mb0 baskerville i fw1 f1">Plantify</h1>
         <h2 className="mt2 mb0 f6 fw4 ttu tracked">Plantify your life!</h2>
-        {this.props.isAuthenticted ? userNav : guestNav}
+        <nav className="bt bb tc mw7 center mt4">
+          {this.props.isAuthenticated ? userNav : guestNav}
+        </nav>
       </header>
     )
   }

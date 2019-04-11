@@ -27,7 +27,9 @@ class MyRecipes extends Component {
     return(
       <div>
         <AllRecipes recipes={ this.props.recipes }/>
-        <Link to="/new_recipe">Create Recipe</Link>
+        <Link className="black link hover-dark-green" to="/new_recipe">
+          Create Recipe
+        </Link>
       </div>
     )
   }

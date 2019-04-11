@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signup from './containers/Signup';
 import Login from './containers/Login';
 import Navigation from './routes/Navigation'
@@ -31,20 +31,28 @@ class App extends Component {
     const guestViews = (
       <div>
         <Navigation isAuthenticated={isAuthenticated}/>
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login} />
+
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
+        </Switch>
+
       </div>
     )
 
     const userViews = (
       <div>
         <Navigation isAuthenticated={isAuthenticated}/>
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/user_profile" render={() => <UserProfile user={user} />} />
-        <Route exact path="/my_recipes" render={() => <MyRecipes user={user} />} />
-        <Route exact path="/new_recipe" render={() => <RecipeForm user={user} />} />
-        <Route exact path="/recipe/:id" component={Recipe} />
+
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/user_profile" render={() => <UserProfile user={user} />} />
+          <Route exact path="/my_recipes" render={() => <MyRecipes user={user} />} />
+          <Route exact path="/new_recipe" render={() => <RecipeForm user={user} />} />
+          <Route exact path="/recipe/:id" component={Recipe} />
+        </Switch>
+
       </div>
     )
     console.log(isAuthenticated)
@@ -66,5 +74,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { checkToken })(App);
-
-// <p><Link to={{ pathname: `/user/${user.username}`}}>Profile</Link><br></br><Link to="/my_recipes">My Recipes</Link></p>
