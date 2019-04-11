@@ -30,7 +30,6 @@ class App extends Component {
 
     const guestViews = (
       <div>
-      <h1>Plant Based Chef</h1>
         <Navigation isAuthenticated={isAuthenticated}/>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={Signup} />
@@ -40,8 +39,7 @@ class App extends Component {
 
     const userViews = (
       <div>
-        <h1>Plant Based Chef</h1>
-        <Navigation isAuthenticated={isAuthenticated} user={user}/>
+        <Navigation isAuthenticated={isAuthenticated}/>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/user_profile" render={() => <UserProfile user={user} />} />
         <Route exact path="/my_recipes" render={() => <MyRecipes user={user} />} />
