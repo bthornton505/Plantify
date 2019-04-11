@@ -8,7 +8,6 @@ class Login extends Component {
     super(props)
 
     this.state = {
-      username: "",
       email: "",
       password: "",
     };
@@ -37,6 +36,7 @@ class Login extends Component {
         <form class="measure center" onSubmit={this.handleSubmit}>
           <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
             <legend class="f4 fw6 ph0 mh0">Login</legend>
+
             <div class="mt3">
               <label class="db fw6 lh-copy f6">Email: </label>
               <input
@@ -47,6 +47,7 @@ class Login extends Component {
                 onChange={this.handleChange}
                 />
             </div>
+
             <div class="mt3">
               <label class="db fw6 lh-copy f6">Password: </label>
               <input
@@ -57,6 +58,7 @@ class Login extends Component {
                 onChange={this.handleChange}
                 />
             </div>
+
           </fieldset>
           <div class="">
             <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" />
@@ -68,15 +70,3 @@ class Login extends Component {
 }
 
 export default Login = withRouter(connect(null, { authenticate })(Login));
-
-// <p>
-//   <label>Username: </label>
-//   <input
-//     type="text"
-//     name="username"
-//     value={this.state.username}
-//     onChange={this.handleChange}
-//     />
-// </p>
-
-// ${this.state.username}
