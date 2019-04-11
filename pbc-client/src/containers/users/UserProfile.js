@@ -16,8 +16,8 @@ class UserProfile extends Component {
     const { user } = this.props
 
     return(
-      <div class="tc ph4">
-        <h1 class="f3 f2-m f1-l fw2 black-90 mv3">Welcome back, {user.username}!</h1>
+      <div className="tc ph4">
+        <h1 className="f3 f2-m f1-l fw2 black-90 mv3">Welcome back, {user.username}!</h1>
         <div>
           <p>
             <label>Username: </label>
