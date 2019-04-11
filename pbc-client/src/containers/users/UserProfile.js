@@ -19,13 +19,8 @@ class UserProfile extends Component {
       <div className="tc ph4">
         <h1 className="f3 f2-m f1-l fw2 black-90 mv3">Welcome back, {user.username}!</h1>
         <div>
-          <p>
-            <label>Username: </label>
-            {user.username}
-          </p>
-          <p>
-            <label>Email: </label>
-            {user.email}
+          <p className="f5 f4-m f3-l fw2 black-80 mt0 lh-copy">
+            Have any new recipes for us?
           </p>
         </div>
       </div>
