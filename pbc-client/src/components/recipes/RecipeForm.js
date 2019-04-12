@@ -19,16 +19,6 @@ class RecipeForm extends Component {
     }
   }
 
-  addIngredient = () => {
-    const { ingredients, ingredient } = this.state;
-    ingredients.push(ingredient)
-
-    this.setState({
-      ingredients: ingredients,
-      ingredient: ''
-    })
-  }
-
   addIngredient = event => {
     event.preventDefault()
     const { ingredients, ingredient } = this.state;
@@ -49,9 +39,8 @@ class RecipeForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-
     const recipe = this.state
-    // console.log(recipe)
+
     this.props.createRecipe(recipe)
     this.setState({
       isCreated: true
@@ -69,7 +58,7 @@ class RecipeForm extends Component {
       <h1 className="f3 f2-m f1-l fw2 black-90 mv3">Wanna make a new recipe? Go for it!</h1>
 
         <form className="measure center" onSubmit={this.handleSubmit}>
-          <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+          <fieldset className="ba b--transparent ph0 mh0">
 
             <div className="mt3">
               <label className="db fw6 lh-copy f6">Title: </label>
@@ -160,5 +149,3 @@ class RecipeForm extends Component {
 }
 
 export default RecipeForm = withRouter(connect(null, { createRecipe })(RecipeForm));
-
-// commented code
