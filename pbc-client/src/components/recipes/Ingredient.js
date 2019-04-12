@@ -9,7 +9,7 @@ const Ingredient = props => {
     key={index}>{ingredient}</li>) : "Loading"
 
   return(
-    <ul className="list pl0 measure center">
+    <ul className="list pl0 measure center dark-green">
       {ingredientList}
     </ul>
   )

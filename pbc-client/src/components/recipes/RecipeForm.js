@@ -129,7 +129,7 @@ class RecipeForm extends Component {
               {
                 this.state.ingredients.map(ingredient =>
                   <ul className="list pl0 measure center">
-                    <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30">
+                    <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30 dark-green">
                       {ingredient}
                     </li>
                   </ul>
