@@ -22,10 +22,13 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    // This will authenticate the users credentials and distribute jwt token on success
     if (this.props.authenticate(this.state)) {
+    // user will be redirected to profile on success
       this.props.history.push(`/user_profile`)
       window.alert("You're Logged In!")
     } else {
+      // Need to add validations for when this doesn't work
       window.alert("Sorry, something went wrong. Please try logging in again.")
     }
   }
@@ -35,6 +38,7 @@ class Login extends Component {
       <main className="pa4 black-80">
         <form className="measure center" onSubmit={this.handleSubmit}>
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+
             <legend className="f4 fw6 ph0 mh0">Login</legend>
 
             <div className="mt3">
@@ -61,7 +65,8 @@ class Login extends Component {
 
           </fieldset>
           <div className="">
-            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green" type="submit" />
+            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green"
+            type="submit" />
           </div>
         </form>
       </main>
