@@ -4,20 +4,10 @@ import { Redirect } from 'react-router-dom'
 import RecipeDetails from './RecipeDetails';
 import { deleteRecipe, fetchRecipe } from '../../actions/recipeActions';
 
-
 class Recipe extends Component {
-  constructor(props){
-    super(props)
-
-    this.state = {
-      isDeleted: false
-    }
+  state = {
+    isDeleted: false
   }
-
-  // renderIngredients = () => {
-  //   const { ingredients } = this.props.recipe
-  //   ingredients.map(ingredient => <li>{ingredient}</li>)
-  // }
 
   componentDidMount = () => {
     const recipeId = this.props.match.params.id
@@ -45,11 +35,8 @@ class Recipe extends Component {
 }
 
 
-
 const mapStateToProps = state => {
   return { recipe: state.recipes}
 }
 
 export default connect(mapStateToProps, { deleteRecipe, fetchRecipe })(Recipe);
-
-// ingredients={this.props.recipe.ingredients}
