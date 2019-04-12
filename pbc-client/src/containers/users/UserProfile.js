@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { logout } from '../../actions/authActions';
-import { withRouter } from 'react-router-dom';
 
 class UserProfile extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      user: this.props.user,
-    }
-  }
 
   render() {
     const { user } = this.props
@@ -28,4 +18,4 @@ class UserProfile extends Component {
   }
 }
 
-export default UserProfile = withRouter(connect(null, { logout })(UserProfile));
+export default UserProfile;
