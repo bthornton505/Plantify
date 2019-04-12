@@ -4,6 +4,7 @@ const LandingPage= () => {
 
   return(
     <main>
+
       <div className="tc ph4">
         <h1 className="f3 f2-m f1-l fw2 black-90 mv3">
           Welcome to the Plantify!
@@ -19,6 +20,7 @@ const LandingPage= () => {
           If this sounds like something for you, sign up!
         </p>
       </div>
+      
     </main>
   )
 }
