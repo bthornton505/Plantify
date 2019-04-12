@@ -24,9 +24,11 @@ const AllRecipes = props => {
         <ul className="list pl0 measure center">
           {recipeList}
         </ul>
-        <Link className="black link hover-dark-green" to="/new_recipe">
-          Create Recipe
-        </Link>
+        <div className="">
+          <Link className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green link" to="/new_recipe">
+            Create Recipe
+          </Link>
+        </div>
       </div>
     )
 }
@@ -36,3 +38,7 @@ AllRecipes.defaultProps = {
 }
 
 export default AllRecipes;
+
+// <Link className="black link hover-dark-green" to="/new_recipe">
+//   Create Recipe
+// </Link>
