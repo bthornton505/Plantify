@@ -3,12 +3,6 @@ import Ingredient from './Ingredient'
 
 const RecipeDetails = props => {
   const { title, description, cuisine, ingredients, instructions } = props.recipe
-  console.log(`Ingredients are ${ingredients}`)
-  // const ingredientsList = props.recipe.ingredients.map(ingredient => {
-  //   return(
-  //     <li>{ingredient}</li>
-  //   )
-  // })
 
   return (
     <div className="tc ph4">
@@ -27,12 +21,11 @@ const RecipeDetails = props => {
       <div>
         <label>Ingredients: </label>
         <Ingredient ingredients={ingredients}/>
-        {console.log(ingredients)}
       </div>
 
       <div>
         <label>Instructions:</label>
-        <p className="tc">
+        <p>
           { instructions }
         </p>
       </div>
