@@ -4,16 +4,15 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signup from './containers/Signup';
 import Login from './containers/Login';
 import Navigation from './routes/Navigation'
-import Footer from './routes/Footer'
+// import Footer from './routes/Footer'
 import MyRecipes from './containers/recipes/MyRecipes';
 import RecipeForm from './components/recipes/RecipeForm';
 import Recipe from './components/recipes/Recipe'
 import About from './components/About';
 import LandingPage from './components/LandingPage';
-import UserProfile from './containers/users/UserProfile'
+import UserProfile from './components/UserProfile'
 import { checkToken } from './actions/authActions';
 
-import './App.css';
 
 class App extends Component {
 
