@@ -85,7 +85,6 @@ export const getUser = (credentials) => {
     },
     body: JSON.stringify(credentials)
   })
-  console.log(`This is your user ${credentials.username}, ${credentials.email}`)
   return fetch(request)
     .then(response => response.json())
     .then(user => { return user })
