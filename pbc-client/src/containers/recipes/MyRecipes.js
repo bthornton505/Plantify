@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import { fetchRecipes } from '../../actions/recipeActions'
 import AllRecipes from '../../components/recipes/AllRecipes';
 
@@ -31,4 +30,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default MyRecipes = withRouter(connect(mapStateToProps, { fetchRecipes })(MyRecipes));
+export default connect(mapStateToProps, { fetchRecipes })(MyRecipes);
