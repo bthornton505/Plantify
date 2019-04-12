@@ -26,7 +26,9 @@ class MyRecipes extends Component {
 }
 
 const mapStateToProps = state => {
-  return { recipes: state.recipes.recipes}
+  return {
+    recipes: state.recipes.recipes
+  }
 }
 
 export default MyRecipes = withRouter(connect(mapStateToProps, { fetchRecipes })(MyRecipes));
