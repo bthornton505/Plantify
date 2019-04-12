@@ -10,9 +10,6 @@ const AllRecipes = props => {
           className="black link hover-dark-green"
           to={{
           pathname: `/recipe/${recipe.id}`,
-          // state: {
-          //   recipe: recipe
-          // }
         }}>{recipe.title}</Link>
       </li>
     )
@@ -38,7 +35,3 @@ AllRecipes.defaultProps = {
 }
 
 export default AllRecipes;
-
-// <Link className="black link hover-dark-green" to="/new_recipe">
-//   Create Recipe
-// </Link>
