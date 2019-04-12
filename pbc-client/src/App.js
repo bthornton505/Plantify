@@ -80,7 +80,6 @@ const mapStateToProps = state => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
     user: state.auth.currentUser,
-    // recipes: state.auth.currentUser.recipes
   }
 }
 
