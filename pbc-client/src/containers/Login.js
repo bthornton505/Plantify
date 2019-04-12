@@ -61,7 +61,7 @@ class Login extends Component {
 
           </fieldset>
           <div className="">
-            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" />
+            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green" type="submit" />
           </div>
         </form>
       </main>

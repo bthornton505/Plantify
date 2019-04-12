@@ -114,9 +114,9 @@ class RecipeForm extends Component {
                 onChange={this.handleChange}
               />
 
-              <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+              <fieldset id="add_recipe" className="ba b--transparent ph0 mh0">
                 <div className="">
-                  <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" onClick={this.addIngredient}>
+                  <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green" onClick={this.addIngredient}>
                     Add
                   </button>
                 </div>
@@ -151,7 +151,7 @@ class RecipeForm extends Component {
           </fieldset>
 
           <div className="">
-            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" />
+            <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green" type="submit" />
           </div>
         </form>
       </div>
