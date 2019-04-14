@@ -4,12 +4,6 @@ import { fetchRecipes } from '../../actions/recipeActions'
 import AllRecipes from '../../components/recipes/AllRecipes';
 
 class MyRecipes extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      user: this.props.user
-    }
-  }
 
   componentDidMount = () => {
     this.props.fetchRecipes()
