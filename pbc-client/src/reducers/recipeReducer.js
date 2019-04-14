@@ -12,7 +12,6 @@ export default (state = [], action) => {
       // { ...state, recipe: action.recipe }
 
     case types.CREATE_RECIPE:
-      // return state.concat(action.recipe)
       return {
         ...state, recipes:
         [...state.recipes, action.recipe]
