@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { authenticate } from '../actions/authActions';
 
 class Login extends Component {
-  constructor(props) {
-    super(props)
 
-    this.state = {
-      email: "",
-      password: "",
-    };
-  }
+  state = {
+    email: "",
+    password: "",
+  };
+
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -74,4 +71,4 @@ class Login extends Component {
   }
 }
 
-export default Login = withRouter(connect(null, { authenticate })(Login));
+export default connect(null, { authenticate })(Login);
