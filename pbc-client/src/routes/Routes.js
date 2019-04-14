@@ -36,7 +36,7 @@ const Routes = props => {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/about" component={About} />
         <Route exact path="/user_profile" render={() => <UserProfile user={props.user} />} />
-        <Route exact path="/my_recipes" render={() => <MyRecipes user={props.user} />} />
+        <Route exact path="/my_recipes" component={MyRecipes} />
         <Route exact path="/new_recipe" render={() => <RecipeForm user={props.user} />} />
         <Route exact path="/recipe/:id" component={Recipe} />
       </Switch>
