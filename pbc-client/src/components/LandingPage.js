@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const LandingPage= () => {
 
@@ -17,7 +18,7 @@ const LandingPage= () => {
           Not only can you create and save your favorite recipes, but you can also explore our vast database of vegan/vegetarian recipes!
         </p>
         <p className="f5 f4-m f3-l fw2 black-80 mt0 lh-copy">
-          If this sounds like something for you, <a class="f5 f4-m f3-l fw4 black link hover-dark-green" href="signup">sign up!</a>
+          If this sounds like something for you, <Link className="f5 f4-m f3-l fw4 black link hover-dark-green" to="signup">sign up!</Link>
         </p>
       </div>
 
