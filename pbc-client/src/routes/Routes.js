@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Navigation from './Navigation'
-import Footer from './Footer';
 import Signup from '../containers/Signup';
 import Login from '../containers/Login';
 import MyRecipes from '../containers/recipes/MyRecipes';
@@ -25,7 +24,7 @@ const Routes = props => {
         <Route exact path="/login" component={Login} />
       </Switch>
 
-      
+
     </div>
   )
 
