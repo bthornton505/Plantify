@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+// import Vote from './Vote';
 
 const AllRecipes = props => {
   // recipeList will map through user recipes and create ordered list of recipes"
