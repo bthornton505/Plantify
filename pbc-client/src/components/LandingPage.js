@@ -11,16 +11,16 @@ const LandingPage= () => {
         </h1>
 
         <p className="f5 f4-m f3-l fw2 black-80 mt0 lh-copy">
-          We provide the easiest and way to track your favorite plant-based recipes and share them with friends and family.
+          We provide the easiest way to track your favorite plant-based recipes and share them with friends and family.
         </p>
         <p className="f5 f4-m f3-l fw2 black-80 mt0 lh-copy">
-          Not only can you create and save your fav recipes, but you can also explore our vast database of vegan/vegetarian recipes!
+          Not only can you create and save your favorite recipes, but you can also explore our vast database of vegan/vegetarian recipes!
         </p>
         <p className="f5 f4-m f3-l fw2 black-80 mt0 lh-copy">
-          If this sounds like something for you, sign up!
+          If this sounds like something for you, <a class="f5 f4-m f3-l fw4 black link hover-dark-green" href="signup">sign up!</a>
         </p>
       </div>
-      
+
     </main>
   )
 }
