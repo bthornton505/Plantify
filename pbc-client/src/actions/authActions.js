@@ -26,7 +26,7 @@ const authFailure = (errors) => {
 export const signup = (user) => {
   const newUser = user
   return dispatch => {
-    return fetch(`${API_URL}/signup`, {
+    return fetch(`https://plantifyyourlife.herokuapp.com/signup`, {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -52,7 +52,7 @@ export const authenticate = (credentials) => {
   console.log("calling function")
   return dispatch => {
     dispatch(authRequest())
-    return fetch(`${API_URL}/auth/login`, {
+    return fetch(`https://plantifyyourlife.herokuapp.com/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -77,7 +77,7 @@ export const authenticate = (credentials) => {
 }
 
 export const getUser = (credentials) => {
-  const request = new Request(`${API_URL}/find_user`, {
+  const request = new Request(`https://plantifyyourlife.herokuapp.com/find_user`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -107,7 +107,7 @@ export const checkToken = (token) => {
   console.log("calling function")
   return dispatch => {
     dispatch(authRequest())
-    return fetch(`${API_URL}/auth/check_token`, {
+    return fetch(`https://plantifyyourlife.herokuapp.com/auth/check_token`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
