@@ -17,8 +17,7 @@ gem 'puma', '~> 3.11'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'active_model_serializers'
-# Using foreman to combine both servers into one task
-gem 'foreman', '~> 0.82.0'
+
 # Knock is an authentication solution for Rails API-only application based on JSON Web Tokens.
 # gem 'knock'
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
@@ -47,6 +46,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Using foreman to combine both servers into one task
+  gem 'foreman', '~> 0.82.0'
 end
 
 
