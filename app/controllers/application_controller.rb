@@ -6,6 +6,10 @@ class ApplicationController < ActionController::API
   before_action :authorize_request
   attr_reader :current_user
 
+  def fallback_index_html
+    render :file => 'public/index.html'
+  end
+
   private
 
   # Check for valid request token and return user
