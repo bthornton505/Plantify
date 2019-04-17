@@ -2,12 +2,11 @@
   "name": "plantify",
   "license": "MIT",
   "engines": {
-    "node": "8.9.4",
-    "yarn": "1.6.0"
+    "node": "8.9.4"
   },
   "scripts": {
     "build": "cd pbc-client && npm install && npm run build && cd ..",
     "deploy": "cp -a pbc-client/build/. public/",
-    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client built!'"
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   }
 }

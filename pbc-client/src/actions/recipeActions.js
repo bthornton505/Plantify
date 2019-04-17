@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { API_URL } from './apiUrl';
+// import { API_URL } from './apiUrl';
 import * as types from './actionTypes';
 
 const getRecipes = recipes => {
@@ -32,7 +32,7 @@ const destroyRecipe = recipe => {
 
 export const createRecipe = recipe => {
   return (dispatch) => {
-    return fetch(`${API_URL}/recipes`, {
+    return fetch(`/api/recipes`, {
       method: "POST",
       headers: {
         "Content-Type": 'application/json',
@@ -50,7 +50,7 @@ export const createRecipe = recipe => {
 
 export const fetchRecipes = recipes => {
   return (dispatch) => {
-    return fetch(`${API_URL}/recipes`, {
+    return fetch(`/api/recipes`, {
       method: "GET",
       headers: {
         "Accept": "application/json",
@@ -67,7 +67,7 @@ export const fetchRecipes = recipes => {
 
 export const fetchRecipe = recipeId => {
   return (dispatch) => {
-    return fetch(`${API_URL}/recipes/${recipeId}`, {
+    return fetch(`/api/recipes/${recipeId}`, {
       method: "GET",
       headers: {
         "Accept": "application/json",
@@ -84,7 +84,7 @@ export const fetchRecipe = recipeId => {
 
 export const deleteRecipe = recipeId => {
   return (dispatch) => {
-    return fetch(`${API_URL}/recipes/${recipeId}`, {
+    return fetch(`/api/recipes/${recipeId}`, {
       method: "DELETE",
       headers: {
         "Accept": "application/json",
