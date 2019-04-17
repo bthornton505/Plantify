@@ -27,7 +27,7 @@ module PbcApi
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'http://localhost:3000', 'https://plantifyyourlife.herokuapp.com/'
-        resource '*', :headers => :any, :methods => :any
+        resource '*', headers: :any, methods: :any
       end
     end
 
