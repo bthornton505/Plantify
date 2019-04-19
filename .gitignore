@@ -19,7 +19,7 @@
 
 .byebug_history
 
-# Ignore master key for decrypting credentials and more.
+# This is my ignored master.key
 /config/master.key
 
 # Production
