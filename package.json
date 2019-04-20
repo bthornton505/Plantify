@@ -2,7 +2,8 @@
   "name": "plantify",
   "license": "MIT",
   "engines": {
-    "node": "8.9.4"
+    "npm": "6.9.0",
+    "node": "11.11.0"
   },
   "scripts": {
     "build": "cd pbc-client && npm install && npm run build && cd ..",
