@@ -15,8 +15,19 @@ const LandingPage= () => {
           We provide the easiest way to track your favorite plant-based recipes and share them with friends and family.
         </p>
         <p className="f5 f4-m f3-l fw2 black-80 mt0 lh-copy">
-          Not only can you create and save your favorite recipes, but you can also explore our vast database of vegan/vegetarian recipes!
+          Plantify is a work in progress with some features soon to come:
         </p>
+          <ul className="list pl0 measure center">
+            <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30">
+              Ability to search database of vegan/vegetarian recipes
+            </li>
+            <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30">
+              Take these found recipes and save them to your favorites
+            </li>
+            <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30">
+              Be able to email full recipe to friends and family
+            </li>
+          </ul>
         <p className="f5 f4-m f3-l fw2 black-80 mt0 lh-copy">
           If this sounds like something for you, <Link className="f5 f4-m f3-l fw4 black link hover-dark-green" to="signup">sign up!</Link>
         </p>
