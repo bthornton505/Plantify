@@ -43,4 +43,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/bthorn
 
 ## License
 
-All software is available as open source under the terms of the [MIT License](https://github.com/bthornton505/plant-based-chef/blob/master/LICENSE).
+All software is available as open source under the terms of the [MIT License](https://github.com/bthornton505/Plantify/blob/master/LICENSE).
