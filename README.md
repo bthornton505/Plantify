@@ -39,7 +39,7 @@ Assuming you have Ruby, Rails and Node.js installed,
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/bthornton505/plant-based-chef. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bthornton505/Plantify. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
 
