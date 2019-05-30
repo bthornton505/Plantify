@@ -20,7 +20,7 @@ Assuming you have Ruby, Rails and Node.js installed,
 - From the root directory:
   - cd into the pbc-client directory
   - Run `$ npm install`
-- cd into the pbc-api directory
+- cd back to the root directory:
   - Run `$ rake db:migrate`
   - Run `$ rake start`
 - Now you should have the app open up in your browser
