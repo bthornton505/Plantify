@@ -3,7 +3,7 @@ import React from 'react'
 const About = () => {
 
   return(
-    <main>
+    <section className="About">
       <div className="tc ph4">
         <h1 className="f3 f2-m f1-l fw2 black-90 mv3">
           Why Plantify?
@@ -28,7 +28,7 @@ const About = () => {
         </p>
 
       </div>
-    </main>
+    </section>
   )
 }
 
