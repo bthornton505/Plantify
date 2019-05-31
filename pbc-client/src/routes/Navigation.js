@@ -45,13 +45,17 @@ class Navigation extends Component {
     )
 
     return(
-      <header className="bg-white black-80 tc pv4 avenir">
-        <h1 className="mt2 mb0 baskerville i fw1 f1">Plantify</h1>
-        <h2 className="mt2 mb0 f6 fw4 ttu tracked">Plantify your life!</h2>
-        <nav className="bt bb tc mw7 center mt4">
-          {this.props.isAuthenticated ? userNav : guestNav}
-        </nav>
-      </header>
+      <section className="header">
+        <header className="bg-white black-80 tc pv4 avenir">
+          <h1 className="mt2 mb0 baskerville i fw1 f1">Plantify</h1>
+          <h2 className="mt2 mb0 f6 fw4 ttu tracked">Plantify your life!</h2>
+          <section className="Navigation">
+            <nav className="bt bb tc mw7 center mt4">
+              {this.props.isAuthenticated ? userNav : guestNav}
+            </nav>
+          </section>
+        </header>
+      </section>
     )
   }
 }
