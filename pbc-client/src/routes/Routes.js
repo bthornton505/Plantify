@@ -24,7 +24,6 @@ const Routes = props => {
         <Route exact path="/login" component={Login} />
       </Switch>
 
-
     </div>
   )
 
@@ -40,7 +39,6 @@ const Routes = props => {
         <Route exact path="/new_recipe" render={() => <RecipeForm user={props.user} />} />
         <Route exact path="/recipe/:id" component={Recipe} />
       </Switch>
-
 
     </div>
   )
