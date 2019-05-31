@@ -15,6 +15,9 @@ class Navigation extends Component {
         <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/">
           Home
         </NavLink>
+        <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/search">
+          Search
+        </NavLink>
         <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/about">
           About
         </NavLink>
@@ -31,6 +34,9 @@ class Navigation extends Component {
       <>
         <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/user_profile">
           Profile
+        </NavLink>
+        <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/search">
+          Search
         </NavLink>
         <NavLink className="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" to="/my_recipes">
           My Recipes
