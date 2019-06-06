@@ -4,6 +4,7 @@ import SearchResults from '../components/search/SearchResults';
 class Search extends Component {
   state = {
     search: "",
+    submitted: false,
   }
 
   handleChange = event => {
@@ -13,12 +14,18 @@ class Search extends Component {
     });
   }
 
-  onSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
-
+    this.setState({
+      submitted: true
+    })
   }
 
   render(){
+    if (this.state.submitted === true){
+      return <SearchResults />
+    }
+
     return(
       <section className="Search">
         <main className="ph4 black-80">
@@ -27,7 +34,7 @@ class Search extends Component {
           Search for Recipes!
         </h1>
 
-          <form id="search-form" className="measure center">
+          <form id="search-form" className="measure center" onSubmit={this.handleSubmit}>
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
 
               <div className="mt3">
@@ -49,7 +56,10 @@ class Search extends Component {
           </form>
         </main>
 
-        <SearchResults />
+        <div id="search-results">
+          {SearchResults}
+        </div>
+
       </section>
     )
   }
