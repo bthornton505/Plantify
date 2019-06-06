@@ -4,7 +4,11 @@ const SearchResults = () => {
 
   return(
     <section id="search-results">
-      <p>Results show up here</p>
+      <div className="tc ph4">
+
+        <h1 className="f3 f2-m f1-l fw2 black-90 mv3">Results show up here</h1>
+
+      </div>
     </section>
   )
 }
