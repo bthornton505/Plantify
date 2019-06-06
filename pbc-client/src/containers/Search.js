@@ -17,6 +17,9 @@ class Search extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    // The below function could dispatch a redux action
+    // Which will be sent to the api who will send the request to external api
+    // this.props.recipeSearch();
     this.setState({
       submitted: true
     })
