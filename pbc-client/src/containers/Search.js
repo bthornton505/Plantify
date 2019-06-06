@@ -15,16 +15,29 @@ class Search extends Component {
   render(){
     return(
       <section className="Search">
-        <h1>Search for Recipes!</h1>
+        <main className="ph4 black-80">
 
-        <form id="search-form">
-          <input
-            type="text"
-            name="search"
-            value={this.state.search}
-            onChange={this.handleChange}
-          />
-        </form>
+        <h1 className="tc f3 f2-m f1-l fw2 black-90 mv3">
+          Search for Recipes!
+        </h1>
+
+          <form id="search-form" className="measure center">
+            <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+
+              <div className="mt3">
+                <label className="db fw6 lh-copy f6">What are you looking for:</label>
+                <input
+                  type="text"
+                  name="search"
+                  value={this.state.search}
+                  onChange={this.handleChange}
+                  className="b pa2 input-reset ba bg-transparent w-100"
+                />
+              </div>
+
+            </fieldset>
+          </form>
+        </main>
       </section>
     )
   }
