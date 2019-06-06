@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import SearchResults from '../components/search/SearchResults';
 
 class Search extends Component {
@@ -23,7 +24,7 @@ class Search extends Component {
 
   render(){
     if (this.state.submitted === true){
-      return <SearchResults />
+      return <Redirect to="/search/results" />
     }
 
     return(
