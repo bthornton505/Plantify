@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchResults from '../components/search/SearchResults';
 
 class Search extends Component {
   state = {
@@ -10,6 +11,11 @@ class Search extends Component {
     this.setState({
       [name]: value
     });
+  }
+
+  onSubmit = event => {
+    event.preventDefault();
+
   }
 
   render(){
@@ -36,8 +42,14 @@ class Search extends Component {
               </div>
 
             </fieldset>
+            <div className="">
+              <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green"
+              type="submit" />
+            </div>
           </form>
         </main>
+
+        <SearchResults />
       </section>
     )
   }
