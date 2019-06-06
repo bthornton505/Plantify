@@ -8,6 +8,7 @@ import MyRecipes from '../containers/recipes/MyRecipes';
 import RecipeForm from '../components/recipes/RecipeForm';
 import Recipe from '../components/recipes/Recipe'
 import Search from '../containers/Search';
+import SearchResults from '../components/search/SearchResults';
 import About from '../components/About';
 import LandingPage from '../components/LandingPage';
 import UserProfile from '../components/UserProfile'
@@ -21,6 +22,7 @@ const Routes = props => {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/search" component={Search} />
+        <Route exact path='/search/results' component={SearchResults} />
         <Route exact path="/about" component={About} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
@@ -36,6 +38,7 @@ const Routes = props => {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/search" component={Search} />
+        <Route exact path='/search/results' component={SearchResults} />
         <Route exact path="/about" component={About} />
         <Route exact path="/user_profile" render={() => <UserProfile user={props.user} />} />
         <Route exact path="/my_recipes" component={MyRecipes} />
