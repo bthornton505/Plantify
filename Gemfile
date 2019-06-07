@@ -21,7 +21,9 @@ gem 'active_model_serializers'
 # gem 'knock'
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 gem 'jwt'
-# gem 'simple_command'
+
+# This gem will allow me to make http requests to my external api
+gem 'faraday'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
