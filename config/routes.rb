@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get 'auth/check_token', to: 'authentication#check_token'
 
     post 'find_user' => 'users#find'
+
+    get '/search_recipes', to: 'recipe_searches#search_recipes'
   end
 
   get '*path', to: "application#fallback_index_html", constraints: ->(request) do
