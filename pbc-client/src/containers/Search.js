@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import SearchResults from '../components/search/SearchResults';
+import { recipeSearch } from '../actions/searchActions';
 
 class Search extends Component {
   state = {
@@ -19,7 +21,7 @@ class Search extends Component {
     event.preventDefault();
     // The below function could dispatch a redux action
     // Which will be sent to the api who will send the request to external api
-    // this.props.recipeSearch();
+    this.props.recipeSearch();
     this.setState({
       submitted: true
     })
@@ -69,4 +71,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default connect(null, { recipeSearch })(Search);
