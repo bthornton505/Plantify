@@ -56,6 +56,7 @@ class EditRecipeForm extends Component {
     if (this.state.isUpdated === true){
       return <Redirect to="/my_recipes" />
     }
+
     const { ingredient } = this.state
 
     return(
@@ -71,6 +72,7 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="title"
+                placeholder={this.props.recipe.title}
                 value={this.state.title}
                 onChange={this.handleChange}
               />
@@ -82,6 +84,7 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="description"
+                placeholder={this.props.recipe.description}
                 value={this.state.description}
                 onChange={this.handleChange}
               />
@@ -93,6 +96,7 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="cuisine"
+                placeholder={this.props.recipe.cuisine}
                 value={this.state.cuisine}
                 onChange={this.handleChange}
               />
@@ -137,6 +141,7 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="instructions"
+                placeholder={this.props.recipe.instructions}
                 value={this.state.instructions}
                 onChange={this.handleChange}
               />
@@ -153,4 +158,8 @@ class EditRecipeForm extends Component {
   }
 }
 
-export default EditRecipeForm = withRouter(connect(null, { fetchRecipe })(EditRecipeForm));
+const mapStateToProps = state => {
+  return { recipe: state.recipes}
+}
+
+export default EditRecipeForm = withRouter(connect(mapStateToProps, { fetchRecipe })(EditRecipeForm));
