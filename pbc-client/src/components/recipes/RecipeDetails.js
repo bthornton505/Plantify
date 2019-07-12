@@ -30,7 +30,7 @@ const RecipeDetails = props => {
         </p>
       </div>
 
-      <button  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green">
+      <button  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green" onClick={props.handleEditRedirect}>
         Edit Recipe
       </button>
 
