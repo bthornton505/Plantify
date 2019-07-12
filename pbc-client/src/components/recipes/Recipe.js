@@ -14,6 +14,10 @@ class Recipe extends Component {
     this.props.fetchRecipe(recipeId)
   }
 
+  handleEditRecipe = event => {
+    
+  }
+
   handleDeleteRecipe = event => {
     this.props.deleteRecipe(this.props.recipe.id)
     this.setState({
