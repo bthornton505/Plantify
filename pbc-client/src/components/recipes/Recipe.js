@@ -6,7 +6,8 @@ import { deleteRecipe, fetchRecipe } from '../../actions/recipeActions';
 
 class Recipe extends Component {
   state = {
-    isDeleted: false
+    isDeleted: false,
+    editRecipe: false
   }
 
   componentDidMount = () => {
@@ -14,8 +15,10 @@ class Recipe extends Component {
     this.props.fetchRecipe(recipeId)
   }
 
-  handleEditRecipe = event => {
-    
+  handleEditRedirect = event => {
+    this.setState({
+      editRecipe: true
+    })
   }
 
   handleDeleteRecipe = event => {
@@ -26,13 +29,24 @@ class Recipe extends Component {
   }
 
   render() {
+    const recipeId = this.props.match.params.id
+
     if (this.state.isDeleted === true){
       return <Redirect to="/my_recipes" />
     }
 
+    if (this.state.editRecipe === true){
+      let editRoute = `/recipe/${recipeId}/edit`
+      return <Redirect to={editRoute} />
+    }
+
     return(
       <div>
-        <RecipeDetails recipe={this.props.recipe} handleDeleteRecipe={this.handleDeleteRecipe}/>
+        <RecipeDetails
+          recipe={this.props.recipe}
+          handleDeleteRecipe={this.handleDeleteRecipe}
+          handleEditRedirect={this.handleEditRedirect}
+        />
       </div>
     )
   }
