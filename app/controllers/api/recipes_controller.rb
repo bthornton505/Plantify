@@ -16,6 +16,11 @@ class Api::RecipesController < ApplicationController
     json_response(@recipe)
   end
 
+  def edit
+    @recipe = @user.recipes.find_by(id: params[:id])
+    json_response(@recipe)
+  end
+
   def update
     @recipe = Recipe.find(id: params[:id])
     @recipe.update(recipe_params)
