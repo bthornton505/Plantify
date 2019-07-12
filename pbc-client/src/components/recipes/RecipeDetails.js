@@ -30,6 +30,10 @@ const RecipeDetails = props => {
         </p>
       </div>
 
+      <button  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green">
+        Edit Recipe
+      </button>
+
       <button  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib dark-green" onClick={props.handleDeleteRecipe}>
         Delete Recipe
       </button>
@@ -39,3 +43,5 @@ const RecipeDetails = props => {
 }
 
 export default RecipeDetails
+
+// onClick={props.handleEditRecipe}
