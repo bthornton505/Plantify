@@ -6,6 +6,7 @@ import Signup from '../containers/Signup';
 import Login from '../containers/Login';
 import MyRecipes from '../containers/recipes/MyRecipes';
 import RecipeForm from '../components/recipes/RecipeForm';
+import EditRecipeForm from '../components/recipes/EditRecipeForm';
 import Recipe from '../components/recipes/Recipe'
 import Search from '../containers/Search';
 import SearchResults from '../components/search/SearchResults';
@@ -44,6 +45,7 @@ const Routes = props => {
         <Route exact path="/my_recipes" component={MyRecipes} />
         <Route exact path="/new_recipe" render={() => <RecipeForm user={props.user} />} />
         <Route exact path="/recipe/:id" component={Recipe} />
+        <Route exact path="/recipe/:id/edit" render={() => <EditRecipeForm user={props.user} />} />
       </Switch>
 
     </div>
