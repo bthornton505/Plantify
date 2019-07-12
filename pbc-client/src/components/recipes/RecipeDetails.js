@@ -43,5 +43,3 @@ const RecipeDetails = props => {
 }
 
 export default RecipeDetails
-
-// onClick={props.handleEditRecipe}
