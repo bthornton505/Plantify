@@ -57,7 +57,8 @@ class EditRecipeForm extends Component {
       return <Redirect to="/my_recipes" />
     }
 
-    const { ingredient } = this.state
+    console.log(this.props.recipe.ingredients)
+    const { ingredient } = this.props
 
     return(
       <div className="tc ph4">
@@ -125,7 +126,7 @@ class EditRecipeForm extends Component {
             <div className="mt3">
               <label className="db fw6 lh-copy f6">Current Ingredients: </label>
               {
-                this.state.ingredients.map(ingredient =>
+                this.props.recipe.ingredients.map(ingredient =>
                   <ul className="list pl0 measure center">
                     <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30 dark-green">
                       {ingredient}
@@ -156,6 +157,10 @@ class EditRecipeForm extends Component {
       </div>
     )
   }
+}
+
+EditRecipeForm.defaultProps = {
+  ingredients: []
 }
 
 const mapStateToProps = state => {
