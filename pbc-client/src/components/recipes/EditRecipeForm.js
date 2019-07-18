@@ -8,12 +8,12 @@ class EditRecipeForm extends Component {
     super(props)
 
     this.state = {
-      title: "",
-      description: "",
-      instructions: "",
+      title: this.props.recipe.title,
+      description: this.props.recipe.description,
+      instructions: this.props.recipe.instructions,
       ingredient: "",
-      ingredients: [],
-      cuisine: "",
+      ingredients: this.props.recipe.ingredients,
+      cuisine: this.props.recipe.cuisine,
       userId: this.props.user.id,
       isUpdated: false
     }
@@ -33,6 +33,10 @@ class EditRecipeForm extends Component {
       ingredients,
       ingredient: ''
     }, () => console.log(ingredients))
+  }
+
+  handleDeleteIngredient = event => {
+    event.preventDefault();
   }
 
   handleChange = event => {
@@ -58,7 +62,7 @@ class EditRecipeForm extends Component {
     }
 
     console.log(this.props.recipe.ingredients)
-    const { ingredient } = this.props
+    const { ingredient } = this.state
 
     return(
       <div className="tc ph4">
@@ -73,7 +77,7 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="title"
-                placeholder={this.props.recipe.title}
+                // placeholder={this.props.recipe.title}
                 value={this.state.title}
                 onChange={this.handleChange}
               />
@@ -85,7 +89,7 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="description"
-                placeholder={this.props.recipe.description}
+                // placeholder={this.props.recipe.description}
                 value={this.state.description}
                 onChange={this.handleChange}
               />
@@ -97,7 +101,7 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="cuisine"
-                placeholder={this.props.recipe.cuisine}
+                // placeholder={this.props.recipe.cuisine}
                 value={this.state.cuisine}
                 onChange={this.handleChange}
               />
@@ -126,10 +130,11 @@ class EditRecipeForm extends Component {
             <div className="mt3">
               <label className="db fw6 lh-copy f6">Current Ingredients: </label>
               {
-                this.props.recipe.ingredients.map(ingredient =>
+                this.state.ingredients.map(ingredient =>
                   <ul className="list pl0 measure center">
                     <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30 dark-green">
                       {ingredient}
+                      <button onClick={this.handleDeleteIngredient}>X</button>
                     </li>
                   </ul>
                 )
@@ -142,7 +147,7 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="instructions"
-                placeholder={this.props.recipe.instructions}
+                // placeholder={this.props.recipe.instructions}
                 value={this.state.instructions}
                 onChange={this.handleChange}
               />
