@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users, :recipes
 
+    resources :recipes, only: [:edit]
+
     post 'signup', to: 'users#create'
 
     post 'auth/login', to: 'authentication#authenticate'
