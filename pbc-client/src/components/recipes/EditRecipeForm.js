@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import EditIngredients from './EditIngredients'
 import { connect } from 'react-redux'
 import { withRouter, Redirect } from 'react-router-dom'
-import { fetchRecipe } from '../../actions/recipeActions'
+import { fetchEditRecipe, updateRecipe } from '../../actions/recipeActions'
 
 class EditRecipeForm extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class EditRecipeForm extends Component {
 
   componentDidMount = () => {
     const recipeId = this.props.match.params.id
-    this.props.fetchRecipe(recipeId)
+    this.props.fetchEditRecipe(recipeId)
   }
 
   addIngredient = event => {
@@ -35,9 +36,31 @@ class EditRecipeForm extends Component {
     }, () => console.log(ingredients))
   }
 
-  handleDeleteIngredient = event => {
+  handleRemoveIngredient = (event, ingredients, target) => {
     event.preventDefault();
+
+    for (let i = 0; i < ingredients.length; i++){
+      if (ingredients[i] === target) {
+        ingredients.splice(i, 1)
+      }
+    }
+    return ingredients
   }
+
+  // renderCurrentIngredients = () => {
+  //   let ingredients = this.state
+  //
+  //   let ingredientList = ingredients ? ingredients.map((ingredient, index) =>
+  //     <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30"
+  //     key={index}>{ingredient}</li>) : "Loading"
+  //
+  //   return(
+  //     <ul className="list pl0 measure center dark-green">
+  //       {ingredientList}
+  //     </ul>
+  //   )
+  // }
+
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -48,9 +71,9 @@ class EditRecipeForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const recipe = this.state
+    const recipeId = this.props.recipe.id
 
-    this.props.createRecipe(recipe)
+    this.props.updateRecipe(recipeId)
     this.setState({
       isCreated: true
     })
@@ -61,8 +84,8 @@ class EditRecipeForm extends Component {
       return <Redirect to="/my_recipes" />
     }
 
-    console.log(this.props.recipe.ingredients)
-    const { ingredient } = this.state
+    // console.log(this.props.recipe.ingredients)
+    const { ingredient, ingredients } = this.state
 
     return(
       <div className="tc ph4">
@@ -77,7 +100,6 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="title"
-                // placeholder={this.props.recipe.title}
                 value={this.state.title}
                 onChange={this.handleChange}
               />
@@ -89,7 +111,6 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="description"
-                // placeholder={this.props.recipe.description}
                 value={this.state.description}
                 onChange={this.handleChange}
               />
@@ -101,7 +122,6 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="cuisine"
-                // placeholder={this.props.recipe.cuisine}
                 value={this.state.cuisine}
                 onChange={this.handleChange}
               />
@@ -127,19 +147,7 @@ class EditRecipeForm extends Component {
 
             </div>
 
-            <div className="mt3">
-              <label className="db fw6 lh-copy f6">Current Ingredients: </label>
-              {
-                this.state.ingredients.map(ingredient =>
-                  <ul className="list pl0 measure center">
-                    <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30 dark-green">
-                      {ingredient}
-                      <button onClick={this.handleDeleteIngredient}>X</button>
-                    </li>
-                  </ul>
-                )
-              }
-            </div>
+            <EditIngredients ingredients={ingredients} handleRemoveIngredient={this.handleRemoveIngredient}/>
 
             <div className="mt3">
               <label className="db fw6 lh-copy f6">Instructions: </label>
@@ -147,7 +155,6 @@ class EditRecipeForm extends Component {
                 className="b pa2 input-reset ba bg-transparent w-100"
                 type="text"
                 name="instructions"
-                // placeholder={this.props.recipe.instructions}
                 value={this.state.instructions}
                 onChange={this.handleChange}
               />
@@ -172,4 +179,18 @@ const mapStateToProps = state => {
   return { recipe: state.recipes}
 }
 
-export default EditRecipeForm = withRouter(connect(mapStateToProps, { fetchRecipe })(EditRecipeForm));
+export default EditRecipeForm = withRouter(connect(mapStateToProps, { fetchEditRecipe, updateRecipe })(EditRecipeForm));
+
+// <div className="mt3">
+//   <label className="db fw6 lh-copy f6">Current Ingredients: </label>
+//   {
+//     this.state.ingredients.map(ingredient =>
+//       <ul className="list pl0 measure center">
+//         <li className="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30 dark-green">
+//           {ingredient}
+//           <button onClick={this.handleRemoveIngredient}>X</button>
+//         </li>
+//       </ul>
+//     )
+//   }
+// </div>
