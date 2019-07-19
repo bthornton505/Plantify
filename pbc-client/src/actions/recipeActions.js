@@ -23,28 +23,17 @@ const addRecipe = recipe => {
   }
 }
 
-const destroyRecipe = recipe => {
+const editRecipe = recipe => {
   return {
-    type: types.DELETE_RECIPE,
+    type: types.UPDATE_RECIPE,
     recipe
   }
 }
 
-export const createRecipe = recipe => {
-  return (dispatch) => {
-    return fetch(`/api/recipes`, {
-      method: "POST",
-      headers: {
-        "Content-Type": 'application/json',
-        "Authorization": `Bearer ${localStorage.auth_token}`
-      },
-      body: JSON.stringify( recipe )
-    })
-    .then(response => response.json())
-    .then(recipe => {
-      dispatch(addRecipe(recipe))
-    })
-    .catch(error => console.log(error))
+const destroyRecipe = recipe => {
+  return {
+    type: types.DELETE_RECIPE,
+    recipe
   }
 }
 
@@ -77,6 +66,59 @@ export const fetchRecipe = recipeId => {
     .then(response => response.json())
     .then(recipe => {
       dispatch(getRecipe(recipe))
+    })
+    .catch(error => console.log(error))
+  }
+}
+
+export const createRecipe = recipe => {
+  return (dispatch) => {
+    return fetch(`/api/recipes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": 'application/json',
+        "Authorization": `Bearer ${localStorage.auth_token}`
+      },
+      body: JSON.stringify( recipe )
+    })
+    .then(response => response.json())
+    .then(recipe => {
+      dispatch(addRecipe(recipe))
+    })
+    .catch(error => console.log(error))
+  }
+}
+
+export const fetchEditRecipe = recipeId => {
+  return (dispatch) => {
+    return fetch(`/api/recipes/${recipeId}/edit`, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+        "Authorization": `Bearer ${localStorage.auth_token}`
+      }
+    })
+    .then(response => response.json())
+    .then(recipe => {
+      dispatch(getRecipe(recipe))
+    })
+    .catch(error => console.log(error))
+  }
+}
+
+export const updateRecipe = recipe => {
+  return (dispatch) => {
+    return fetch(`/api/recipes/${recipe}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": 'application/json',
+        "Authorization": `Bearer ${localStorage.auth_token}`
+      },
+      body: JSON.stringify( recipe )
+    })
+    .then(response => response.json())
+    .then(recipe => {
+      dispatch(editRecipe(recipe))
     })
     .catch(error => console.log(error))
   }
